@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="az" data-lang="az">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AzerHistory 3D | Milli İrsin Rəqəmsal Arxivi</title>
+        <link rel="stylesheet" href="FLL.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Poppins:wght@300;400;600;800&display=swap"
+            rel="stylesheet" />
+        <script
+            type="module"
+            src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    </head>
+    <body>
+        <div class="stars"></div>
+        <div class="particles"></div>
+        <div class="cursor-glow" id="cursorGlow"></div>
+
+        <audio id="bgMusic" loop>
+            <source src="music.mp3" type="audio/mpeg" />
+        </audio>
+        <button id="musicBtn">🎵 <span data-i18n="music">Musiqi</span></button>
+
+        <!-- HEADER -->
+        <header id="mainHeader">
+            <div class="logo-area">
+                <img src="loqo.png" alt="Logo" class="site-logo" />
+                <div class="logo-text">AzerHistory <span>3D</span></div>
+            </div>
+            <div class="menu-toggle" id="menu">☰</div>
+            <nav class="navbar" id="navbar">
+                <a href="#home" data-i18n="nav_home">Ana Səhifə</a>
+                <a href="#models" data-i18n="nav_models">3D Eksponatlar</a>
+                <a href="#timeline" data-i18n="nav_timeline" link="timeline.html">Zaman Xətti</a>
+                <a href="#museums" data-i18n="nav_museums">Xəritə</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="az">AZ</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                </div>
+                <div class="contact-links">
+                    <a href="https://www.instagram.com/azer_history2026/" target="_blank"
+                        ><i class="fab fa-instagram"></i
+                    ></a>
+                    <a href="mailto:huseynovmahammad56@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.youtube.com/@0platypus0-m12ez" target="_blank"
+                        ><i class="fab fa-youtube"></i
+                    ></a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <canvas id="heroCanvas"></canvas>
+            <div class="hero-content">
+                <div class="hero-badge" data-i18n="hero_badge">Rəqəmsal Muzey</div>
+                <h1>
+                    <span data-i18n="hero_title1">Azərbaycan Tarixini</span>
+                    <span class="accent" data-i18n="hero_title2">Canlandır</span>
+                </h1>
+                <p data-i18n="hero_sub">
+                    Minilliklərin mirasını müasir texnologiya ilə kəşf edin. Hər bir artefakt xalqımızın keçmişinə
+                    açılan bir pəncərədir.
+                </p>
+                <div class="hero-btns">
+                    <a href="#models" class="btn-main" data-i18n="hero_btn">Kəşfə Başla</a>
+                    <a href="#timeline" class="btn-outline" data-i18n="hero_btn2">Zaman Xətti</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-num" data-target="10">0</span><span data-i18n="stat1">Eksponat</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-target="400000">0</span><span data-i18n="stat2">İl Tarix</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-target="3">0</span><span data-i18n="stat3">3D Model</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll-hint">
+                <div class="scroll-line"></div>
+                <p data-i18n="scroll">Aşağı sürüştür</p>
+            </div>
+        </section>
+
+        <!-- 3D MODELS -->
+        <section id="models">
+            <h2 class="section-title reveal" data-i18n="models_title">İnteraktiv 3D Arxiv</h2>
+
+            <div class="model-showcase reveal">
+                <div class="viewer-part">
+                    <model-viewer
+                        src="sikke.glb"
+                        alt="Qədim Sikkə"
+                        auto-rotate
+                        camera-controls
+                        shadow-intensity="2"></model-viewer>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag" data-i18n="tag_num">Numizmatika</span>
+                    <h2 data-i18n="sikke_title">Qədim Azərbaycan Sikkəsi</h2>
+                    <div class="quick-facts">
+                        <span
+                            ><strong data-i18n="lbl_period">Dövr:</strong>
+                            <span data-i18n="sikke_period">7-10-cu əsrlər</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_mat">Material:</strong>
+                            <span data-i18n="sikke_mat">Gümüş Dirhəm</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_weight">Çəki:</strong>
+                            <span data-i18n="sikke_weight">~2.8 qr</span></span
+                        >
+                    </div>
+                    <p class="long-desc" data-i18n="sikke_desc">
+                        Bu sikkə orta əsrlərdə Azərbaycan ərazisindəki dövlətlərin iqtisadi müstəqilliyini nümayiş
+                        etdirir. Kufi xətti ilə yazılmış kitabə dövrün xəlifəsinin adını göstərir. Bu tapıntılar
+                        Azərbaycanın İpək Yolu üzərindəki əhəmiyyətini sübut edir.
+                    </p>
+                    <div class="historical-context">
+                        <h4 data-i18n="lbl_why">Niyə mühümdür?</h4>
+                        <p data-i18n="sikke_ctx">
+                            Sikkə zərb etmək dövlətçilik rəmzi idi. Bu artefakt o dövrün vergi sistemi haqqında məlumat
+                            verir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="model-showcase reverse reveal">
+                <div class="viewer-part">
+                    <model-viewer
+                        src="cene%20sumuyu.glb"
+                        alt="Azıx Çənəsi"
+                        auto-rotate
+                        camera-controls
+                        shadow-intensity="2"></model-viewer>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag" data-i18n="tag_paleo">Paleoantropologiya</span>
+                    <h2 data-i18n="cene_title">Azıxantropun Çənə Sümüyü</h2>
+                    <div class="quick-facts">
+                        <span
+                            ><strong data-i18n="lbl_age">Yaş:</strong>
+                            <span data-i18n="cene_age">350,000–400,000 il</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_found">Tapıldığı yer:</strong>
+                            <span data-i18n="cene_loc">Azıx mağarası, Qazax</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_type">Növ:</strong>
+                            <span data-i18n="cene_type">Pre-neandertal</span></span
+                        >
+                    </div>
+                    <p class="long-desc" data-i18n="cene_desc">
+                        1968-ci ildə Məmmədəli Hüseynov tərəfindən aşkar edilən bu çənə sümüyü dünya antropologiya
+                        elmini dəyişdi. Bu, dünyada tapılan ən qədim insan qalıqlarından dördüncüsüdür.
+                    </p>
+                    <div class="historical-context">
+                        <h4 data-i18n="lbl_anthro">Antropoloji Əhəmiyyət</h4>
+                        <p data-i18n="cene_ctx">
+                            Bu tapıntı Azərbaycanın bəşəriyyətin ilk formalaşdığı ocaqlardan biri olduğunu təsdiqləyir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="model-showcase reveal">
+                <div class="viewer-part">
+                    <model-viewer
+                        src="dulusculuq.glb"
+                        alt="Ordubad Tapıntısı"
+                        auto-rotate
+                        camera-controls
+                        shadow-intensity="2"></model-viewer>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag" data-i18n="tag_arch">Arxeologiya</span>
+                    <h2 data-i18n="dulus_title">Ordubad Tunc Artefaktı</h2>
+                    <div class="quick-facts">
+                        <span
+                            ><strong data-i18n="lbl_loc">Məkan:</strong>
+                            <span data-i18n="dulus_loc">Naxçıvan MR</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_period">Dövr:</strong>
+                            <span data-i18n="dulus_period">Tunc Dövrü (e.ə. II min.)</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_cult">Mədəniyyət:</strong>
+                            <span data-i18n="dulus_cult">Boyalı Qablar</span></span
+                        >
+                    </div>
+                    <p class="long-desc" data-i18n="dulus_desc">
+                        Ordubad ətrafında aparılan qazıntılarda tapılan bu artefakt qədim Naxçıvan tayfalarının yüksək
+                        sənətkarlıq bacarıqlarını göstərir.
+                    </p>
+                    <div class="historical-context">
+                        <h4 data-i18n="lbl_region">Bölgənin Tarixi</h4>
+                        <p data-i18n="dulus_ctx">
+                            Naxçıvan qədim Azərbaycan dövlətçiliyinin ən qədim mərkəzlərindən hesab olunur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMAGE ARTIFACTS -->
+        <section id="image-artifacts">
+            <div class="model-showcase reveal">
+                <div class="viewer-part">
+                    <div class="empty-box"><img src="at.png" alt="Qədim At Fiquru" /></div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag" data-i18n="tag_arch">Arxeologiya</span>
+                    <h2 data-i18n="at_title">Qədim At Fiquru</h2>
+                    <div class="quick-facts">
+                        <span
+                            ><strong data-i18n="lbl_period">Dövr:</strong>
+                            <span data-i18n="at_period">e.ə. I minillik</span></span
+                        >
+                        <span><strong data-i18n="lbl_mat">Material:</strong> <span data-i18n="at_mat">Tunc</span></span>
+                        <span
+                            ><strong data-i18n="lbl_loc">Məkan:</strong>
+                            <span data-i18n="at_loc">Mil-Qarabağ düzü</span></span
+                        >
+                    </div>
+                    <p class="long-desc" data-i18n="at_desc">
+                        Qədim dövrə aid tunc at heykəlciyidir. At qədim Azərbaycan mədəniyyətində güc və azadlıq simvolu
+                        idi. Üzərindəki yəhər detalları dövrün at çapma mədəniyyətini əks etdirir.
+                    </p>
+                    <div class="historical-context">
+                        <h4 data-i18n="lbl_symbol">Simvolik Əhəmiyyət</h4>
+                        <p data-i18n="at_ctx">
+                            At fiqurları çox vaxt hökmdar məzarlarında tapılır — ruhun o dünyaya süvari getməsini
+                            simvolizə edir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="model-showcase reverse reveal">
+                <div class="viewer-part">
+                    <div class="empty-box"><img src="bicak.png" alt="Tunc Dövrü Silahları" /></div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag" data-i18n="tag_bronze">Tunc Dövrü</span>
+                    <h2 data-i18n="bicak_title">Tunc Dövrünə Aid Silahlar</h2>
+                    <div class="quick-facts">
+                        <span
+                            ><strong data-i18n="lbl_period">Dövr:</strong>
+                            <span data-i18n="bicak_period">e.ə. II–I minillik</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_mat">Material:</strong>
+                            <span data-i18n="bicak_mat">Tunc</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_loc">Məkan:</strong>
+                            <span data-i18n="bicak_loc">Gəncə-Qazax bölgəsi</span></span
+                        >
+                    </div>
+                    <p class="long-desc" data-i18n="bicak_desc">
+                        Xəncər, nizə ucluğu və ox ucluğundan ibarət bu silah toplusu döyüş və ov üçün istifadə olunurdu.
+                        Sınmayan tunc xəlitəsi yerli ustalar tərəfindən işlənib.
+                    </p>
+                    <div class="historical-context">
+                        <h4 data-i18n="lbl_craft">Sənətkarlıq</h4>
+                        <p data-i18n="bicak_ctx">
+                            Bu silahların forması Ön Asiya döyüş ənənəsinin Azərbaycanda unikal inkişafını göstərir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="model-showcase reveal">
+                <div class="viewer-part">
+                    <div class="empty-box"><img src="manna.png" alt="Manna Qızıl Əşyaları" /></div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag" data-i18n="tag_manna">Manna Dövləti</span>
+                    <h2 data-i18n="manna_title">Manna Dövrü Qızıl Əşyaları</h2>
+                    <div class="quick-facts">
+                        <span
+                            ><strong data-i18n="lbl_period">Dövr:</strong>
+                            <span data-i18n="manna_period">e.ə. IX–VII əsr</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_mat">Material:</strong>
+                            <span data-i18n="manna_mat">Qızıl</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_loc">Məkan:</strong>
+                            <span data-i18n="manna_loc">Cənubi Azərbaycan</span></span
+                        >
+                    </div>
+                    <p class="long-desc" data-i18n="manna_desc">
+                        Bu qızıl bəzək toplusu — boyunbağı, bilərziklər, sırğalar və cam — Manna dövlətinin zərif
+                        sənətkarlığının şahididir. Manna e.ə. IX–VII əsrlərdə Urmiya gölü ətrafında güclü dövlət idi.
+                    </p>
+                    <div class="historical-context">
+                        <h4 data-i18n="lbl_state">Dövlətçilik</h4>
+                        <p data-i18n="manna_ctx">
+                            Manna Azərbaycanın ən qədim dövlətlərindəndir. Assuriya mənbələrindən məlumdur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Gəmiqaya Petroqlifləri -->
+            <div class="model-showcase reverse reveal">
+                <div class="viewer-part">
+                    <div class="empty-box">
+                        <img src="qemiqaya.JPG" alt="Gəmiqaya Petroqlifləri" />
+                    </div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag" data-i18n="tag_rock">Qaya Rəsmləri</span>
+                    <h2 data-i18n="gem_title">Gəmiqaya Petroqlifləri</h2>
+                    <div class="quick-facts">
+                        <span
+                            ><strong data-i18n="lbl_period">Dövr:</strong>
+                            <span data-i18n="gem_period">e.ə. IV–I minillik</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_loc">Məkan:</strong>
+                            <span data-i18n="gem_loc">Gəmiqaya, Naxçıvan</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_count">Rəsm sayı:</strong>
+                            <span data-i18n="gem_count">6000-dən çox</span></span
+                        >
+                    </div>
+                    <p class="long-desc" data-i18n="gem_desc">
+                        Gəmiqaya dağının yamaclarında qaya üzərinə həkk edilmiş 6000-dən artıq petroqlif Azərbaycanın ən
+                        böyük açıq hava rəsm qalereyasıdır. İnsan, heyvan, ov və ritual səhnələrini əks etdirən bu
+                        şəkillər qədim insanların həyatını, inanclarını və dünyagörüşünü ortaya qoyur.
+                    </p>
+                    <div class="historical-context">
+                        <h4 data-i18n="lbl_why">Niyə mühümdür?</h4>
+                        <p data-i18n="gem_ctx">
+                            Gəmiqaya petroqlifləri Azərbaycanın UNESCO Dünya İrsi siyahısına namizəd göstərilən
+                            abidələrindəndir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Şirvanşahlar Sarayı Arxeoloji Tapıntıları -->
+            <div class="model-showcase reveal">
+                <div class="viewer-part">
+                    <div class="empty-box">
+                        <img src="sirvan.webp" alt="Şirvanşahlar Sarayı" />
+                    </div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag" data-i18n="tag_medieval">Orta Əsrlər</span>
+                    <h2 data-i18n="shirvan_title">Şirvanşahlar Sarayı Tapıntıları</h2>
+                    <div class="quick-facts">
+                        <span
+                            ><strong data-i18n="lbl_period">Dövr:</strong>
+                            <span data-i18n="shirvan_period">XV əsr</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_loc">Məkan:</strong>
+                            <span data-i18n="shirvan_loc">İçərişəhər, Bakı</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_mat">Material:</strong>
+                            <span data-i18n="shirvan_mat">Daş, Keramika, Metal</span></span
+                        >
+                    </div>
+                    <p class="long-desc" data-i18n="shirvan_desc">
+                        Şirvanşahlar Sarayı kompleksindəki arxeoloji qazıntılar zamanı tapılan keramika, sikkə və bəzək
+                        əşyaları XV əsr Azərbaycan mədəniyyətinin yüksək səviyyəsini sübut edir. Saray 2000-ci ildə
+                        UNESCO-nun Ümumdünya İrsi siyahısına daxil edilmişdir.
+                    </p>
+                    <div class="historical-context">
+                        <h4 data-i18n="lbl_region">Tarixi Əhəmiyyət</h4>
+                        <p data-i18n="shirvan_ctx">
+                            Şirvanşahlar sülaləsi əsrlər boyu Azərbaycanın ən qüdrətli dövlətlərindən birini idarə
+                            etmişdir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Qobustan Petroqlifləri -->
+            <div class="model-showcase reverse reveal">
+                <div class="viewer-part">
+                    <div class="empty-box">
+                        <img src="qobustan2.jpg" alt="Qobustan Qaya Rəsmləri" />
+                    </div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag" data-i18n="tag_rock">Qaya Rəsmləri</span>
+                    <h2 data-i18n="qobu_title">Qobustan Qaya Rəsmləri</h2>
+                    <div class="quick-facts">
+                        <span
+                            ><strong data-i18n="lbl_period">Dövr:</strong>
+                            <span data-i18n="qobu_period">e.ə. XII minillik – e. III əsr</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_loc">Məkan:</strong>
+                            <span data-i18n="qobu_loc">Qobustan, Bakı</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_status">Status:</strong>
+                            <span data-i18n="qobu_status">UNESCO Dünya İrsi</span></span
+                        >
+                    </div>
+                    <p class="long-desc" data-i18n="qobu_desc">
+                        Qobustan Milli Parkında 6000-dən artıq qaya rəsmi var. Ov, rəqs, gəmi və insan təsvirləri daş
+                        dövründən başlayaraq erkən orta əsrlərə qədər uzanan mürəkkəb tarixi əks etdirir. 2007-ci ildə
+                        UNESCO-nun Dünya İrsi siyahısına daxil edilib.
+                    </p>
+                    <div class="historical-context">
+                        <h4 data-i18n="lbl_craft">Sənət Tarixi</h4>
+                        <p data-i18n="qobu_ctx">
+                            Qobustan rəsmləri dünya arxeologiyasında protohistorik dövrün ən əhəmiyyətli açıq hava
+                            muzeyidir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Xınıslı Nekropolü -->
+            <div class="model-showcase reveal">
+                <div class="viewer-part">
+                    <div class="empty-box">
+                        <img
+                            src="nekrapol.jpg"
+                            onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Camponotus_flavomarginatus_ant.jpg/320px-Camponotus_flavomarginatus_ant.jpg'; this.style.display='none'; this.parentNode.innerHTML='<div style=\'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px\'><span style=\'font-size:64px\'>⚱️</span><p style=\'color:#666;font-size:13px;font-family:Poppins,sans-serif\'>Xınıslı nekropolü eksponatları</p></div>'"
+                            alt="Xınıslı Nekropolü" />
+                    </div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag" data-i18n="tag_arch">Arxeologiya</span>
+                    <h2 data-i18n="xin_title">Xınıslı Nekropolü</h2>
+                    <div class="quick-facts">
+                        <span
+                            ><strong data-i18n="lbl_period">Dövr:</strong>
+                            <span data-i18n="xin_period">e.ə. VIII–IV əsr</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_loc">Məkan:</strong>
+                            <span data-i18n="xin_loc">Xınıslı, Bakı ətrafı</span></span
+                        >
+                        <span
+                            ><strong data-i18n="lbl_type">Növ:</strong>
+                            <span data-i18n="xin_type">Skif dövrü nekropolü</span></span
+                        >
+                    </div>
+                    <p class="long-desc" data-i18n="xin_desc">
+                        Xınıslı nekropolündə aparılan qazıntılarda qızıl bəzəklər, silahlar, at avadanlıqları və
+                        keramika tapılmışdır. Bu tapıntılar Albaniyadan əvvəlki dövrdə — Skif və yerli tayfaların
+                        Azərbaycan ərazisindəki həyat tərzini göstərir.
+                    </p>
+                    <div class="historical-context">
+                        <h4 data-i18n="lbl_region">Tarixi Kontekst</h4>
+                        <p data-i18n="xin_ctx">
+                            Xınıslı nekropolü Albaniya öncəsi dövr üçün ən zəngin arxeoloji mənbələrdən biridir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mingəçevir Arxeoloji Tapıntıları -->
+            <div class="model-showcase reverse reveal">
+                <div class="viewer-part">
+                    <div class="empty-box">
+                        <img
+                            src="mingecevir.jpg"
+                            onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px\'><span style=\'font-size:64px\'>🏺</span><p style=\'color:#666;font-size:13px;font-family:Poppins,sans-serif\'>Mingəçevir tapıntıları</p></div>'"
+                            alt="Mingəçevir tapıntıları" />
+                    </div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag">Albaniya Dövrü</span>
+                    <h2>Mingəçevir Nekropolü Tapıntıları</h2>
+                    <div class="quick-facts">
+                        <span><strong>Dövr:</strong> e.ə. I əsr – e. VIII əsr</span>
+                        <span><strong>Məkan:</strong> Mingəçevir, Kür sahili</span>
+                        <span><strong>Tapıntı növü:</strong> Küp qəbirləri, keramika, zinət</span>
+                    </div>
+                    <p class="long-desc">
+                        Mingəçevir nekropolündə aparılan qazıntılar Qafqaz Albaniyasının ən zəngin arxeoloji
+                        materiallarını üzə çıxarmışdır. Küp qəbirlərindən tapılan şüşə bilərziklər, qızıl sırğalar,
+                        silahlar və keramika bu bölgənin ticarət yolları üzərindəki strateji mövqeyini əks etdirir.
+                    </p>
+                    <div class="historical-context">
+                        <h4>Arxeoloji Əhəmiyyət</h4>
+                        <p>
+                            Mingəçevir tapıntıları Qafqaz Albaniyasının mədəni müxtəlifliyini və xarici mədəniyyətlərlə
+                            əlaqəsini sübut edir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skif Kurqanı Tapıntıları -->
+            <div class="model-showcase reveal">
+                <div class="viewer-part">
+                    <div class="empty-box">
+                        <img
+                            src="kurqan.webp"
+                            onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px\'><span style=\'font-size:64px\'>⚔️</span><p style=\'color:#666;font-size:13px;font-family:Poppins,sans-serif\'>Skif dövrü tapıntıları</p></div>'"
+                            alt="Skif Kurqanı" />
+                    </div>
+                </div>
+                <div class="info-part">
+                    <h2>Skif Kurqanı Tapıntıları</h2>
+                    <span class="category-tag">Skif Dövrü</span>
+                    <div class="quick-facts">
+                        <span><strong>Dövr:</strong> e.ə. VII–IV əsr</span>
+                        <span><strong>Məkan:</strong> Mil düzü, Ağcabədi</span>
+                        <span><strong>Material:</strong> Qızıl, tunc, dəmir</span>
+                    </div>
+                    <p class="long-desc">
+                        Mil düzündə tapılan Skif kurqanlarından əldə edilmiş qızıl bəzəklər, silah dəstləri və at
+                        avadanlıqları Skif tayfalarının Azərbaycan ərazisindəki mövcudluğunu sübut edir. Uçan quş,
+                        gərgin şir və döyüşçü təsvirləri ilə bəzədilmiş qızıl əşyalar bu dövrün sənətkarlıq zirvəsini
+                        göstərir.
+                    </p>
+                    <div class="historical-context">
+                        <h4>Tarix Konteksti</h4>
+                        <p>
+                            Skiflər e.ə. VII əsrdə Cənubi Qafqaza gəlmiş köçəri xalq idi. Azərbaycan ərazisindəki
+                            kurqanlar onların mədəni izini saxlayır.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Qala Arxeoloji Kompleksi -->
+            <div class="model-showcase reverse reveal">
+                <div class="viewer-part">
+                    <div class="empty-box">
+                        <img
+                            src="arxeologia.jpg"
+                            onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px\'><span style=\'font-size:64px\'>🏛️</span><p style=\'color:#666;font-size:13px;font-family:Poppins,sans-serif\'>Qala Arxeoloji Kompleksi</p></div>'"
+                            alt="Qala Arxeoloji Kompleksi" />
+                    </div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag">Orta Əsrlər</span>
+                    <h2>Qala Arxeoloji-Etnoqrafik Kompleksi</h2>
+                    <div class="quick-facts">
+                        <span><strong>Dövr:</strong> Erkən orta əsrlər – XIX əsr</span>
+                        <span><strong>Məkan:</strong> Qala kəndi, Abşeron</span>
+                        <span><strong>Status:</strong> Dövlət Muzey Qoruğu</span>
+                    </div>
+                    <p class="long-desc">
+                        Abşeron yarımadasında yerləşən Qala kəndinin arxeoloji qazıntıları zamanı 2000-dən çox artefakt
+                        tapılmışdır. Bunlar arasında orta əsr keramikası, mis qab-qacaq, bəzək əşyaları, əmək alətləri
+                        var. Kompleks Azərbaycanın ənənəvi həyat tərzini canlı şəkildə əks etdirir.
+                    </p>
+                    <div class="historical-context">
+                        <h4>Mədəni İrs</h4>
+                        <p>
+                            Qala kompleksi Abşeronun arxeoloji, etnoqrafik və memarlıq irsini bir arada qoruyub saxlayan
+                            nadir muzey-qoruqlardandır.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMELINE -->
+        <section id="timeline">
+            <div class="timeline-header reveal">
+                <h2 class="section-title" style="margin-bottom: 24px" data-i18n="tl_heading">
+                    Azərbaycan Tarixinin Zaman Xətti
+                </h2>
+                <div style="text-align: center; margin-bottom: 60px">
+                    <a href="timeline.html" target="_blank" class="btn-timeline-toggle" id="timelineToggle">
+                        <span id="tlBtnIcon">📅</span>
+                        <span id="tlBtnText" data-i18n="tl_open">Zaman Xəttini Aç</span>
+                    </a>
+                </div>
+            </div>
+            <div class="timeline-container" id="timelineContent" style="display: none">
+                <div class="timeline-item left reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="tl-year">400,000 il əvvəl</div>
+                        <div class="tl-icon">🦴</div>
+                        <h3 data-i18n="tl1_t">Azıxantrop</h3>
+                        <p data-i18n="tl1_d">
+                            Azıx mağarasında pre-neandertal insanın yaşaması. Odun ilk istifadəsi. Azərbaycan
+                            bəşəriyyətin ən qədim ocaqlarından biri.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="tl-year">e.ə. 4000–2000</div>
+                        <div class="tl-icon">🏺</div>
+                        <h3 data-i18n="tl2_t">Eneolit və Tunc Dövrü</h3>
+                        <p data-i18n="tl2_d">
+                            Kür-Araz mədəniyyəti. İlk şəhər tipli yaşayış məskənləri. Metal emalı və boyalı qablar
+                            sənəti inkişaf edir.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="tl-year">e.ə. IX–VII əsr</div>
+                        <div class="tl-icon">👑</div>
+                        <h3 data-i18n="tl3_t">Manna Dövləti</h3>
+                        <p data-i18n="tl3_d">
+                            Urmiya gölü ətrafında qüdrətli dövlət. Assuriya ilə müharibələr. Qızıl sənətkarlığının
+                            zirvəsi.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="tl-year">e.ə. IV əsr</div>
+                        <div class="tl-icon">⚔️</div>
+                        <h3 data-i18n="tl4_t">Qafqaz Albaniyası</h3>
+                        <p data-i18n="tl4_d">
+                            Albaniya dövləti qurulur. Xristianlığın qəbulu. Rum və Parfiya ilə diplomatik əlaqələr.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="tl-year">VII–X əsr</div>
+                        <div class="tl-icon">🪙</div>
+                        <h3 data-i18n="tl5_t">Ərəb Xilafəti Dövrü</h3>
+                        <p data-i18n="tl5_d">
+                            İslam mədəniyyəti yayılır. Gümüş dirhəmlər zərb edilir. Şirvanşahlar sülaləsi formalaşır.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="tl-year">XI–XIII əsr</div>
+                        <div class="tl-icon">📜</div>
+                        <h3 data-i18n="tl6_t">Orta Əsrlər</h3>
+                        <p data-i18n="tl6_d">
+                            Nizami Gəncəvi dövrü. Şirvanşahlar sarayı. İpək Yolunun çiçəklənməsi. Memarlıq abidələri.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="tl-year">XVI əsr</div>
+                        <div class="tl-icon">🔥</div>
+                        <h3 data-i18n="tl7_t">Səfəvilər İmperiyası</h3>
+                        <p data-i18n="tl7_d">
+                            Şah İsmayıl Xətai böyük imperiya qurur. Azərbaycan dili saray dili olur.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="tl-year">1918</div>
+                        <div class="tl-icon">🇦🇿</div>
+                        <h3 data-i18n="tl8_t">Azərbaycan Xalq Cümhuriyyəti</h3>
+                        <p data-i18n="tl8_d">
+                            Müsəlman dünyasında ilk demokratik respublika elan edilir. Qadınlara seçki hüququ verilir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAP -->
+        <section id="museums">
+            <h2 class="section-title reveal" data-i18n="map_title">Arxeoloji Yerləşmə</h2>
+            <div class="map-box reveal">
+                <!-- Tab buttons -->
+                <div class="map-tabs">
+                    <button class="map-tab active" data-tab="gmap" data-i18n="tab_gmap">🗺️ Google Maps</button>
+                    <button class="map-tab" data-tab="img" data-i18n="tab_img">🖼️ Tapıntı Xəritəsi</button>
+                </div>
+
+                <!-- Google Maps panel -->
+                <div class="map-panel active" id="panel-gmap">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6582!2d45.6380785!3d41.0110959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1saz!2saz!4v1700000000000!5m2!1saz!2saz"
+                        width="100%"
+                        height="520"
+                        style="border: 0; border-radius: 14px; display: block"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="map-pins-legend">
+                        <div class="pin-item">
+                            <span class="pin-dot" style="background: #00c3ff"></span>
+                            <span data-i18n="pin_azikh">Azıx Mağarası — Qazax</span>
+                        </div>
+                        <div class="pin-item">
+                            <span class="pin-dot" style="background: #c8a96e"></span>
+                            <span data-i18n="pin_gobu">Qobustan Milli Parkı</span>
+                        </div>
+                        <div class="pin-item">
+                            <span class="pin-dot" style="background: #ff6b6b"></span>
+                            <span data-i18n="pin_ordu">Ordubad — Naxçıvan</span>
+                        </div>
+                        <div class="pin-item">
+                            <span class="pin-dot" style="background: #7bed9f"></span>
+                            <span data-i18n="pin_shirv">Şirvanşahlar Sarayı — Bakı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image map panel -->
+                <div class="map-panel" id="panel-img">
+                    <img src="xerite2.jpg" alt="Arxeoloji Xəritə" class="responsive-map" />
+                </div>
+
+                <div class="map-desc" style="margin-top: 16px">
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span data-i18n="map_desc"
+                            >Tapıntıların coğrafi bölgüsü Azərbaycanın hər qarışının qədim yaşayış məskəni olduğunu
+                            göstərir.</span
+                        >
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-inner">
+                <div class="footer-logo">AzerHistory <span>3D</span></div>
+                <p data-i18n="footer">&copy; 2026 AzerHistory 3D | Məhəmməd Hüseynov tərəfindən yaradılıb</p>
+                <div class="footer-links">
+                    <a href="https://www.instagram.com/azer_history2026/" target="_blank"
+                        ><i class="fab fa-instagram"></i
+                    ></a>
+                    <a href="mailto:huseynovmahammad56@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.youtube.com/@0platypus0-m12ez" target="_blank"
+                        ><i class="fab fa-youtube"></i
+                    ></a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="FLL.js"></script>
+    </body>
+</html>
