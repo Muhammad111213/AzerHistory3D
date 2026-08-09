@@ -1,15 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "FLL.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "FLL.py"
-    }
+  "rewrites": [
+    { "source": "/", "destination": "/FLL.html" }
   ]
 }
