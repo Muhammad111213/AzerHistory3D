@@ -12,6 +12,8 @@
         <script
             type="module"
             src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+        <link rel="stylesheet" href="auth.css" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     </head>
     <body>
         <div class="stars"></div>
@@ -49,6 +51,12 @@
                         ><i class="fab fa-youtube"></i
                     ></a>
                 </div>
+                <button class="auth-btn" id="authBtn">👤 Giriş</button>
+<div class="user-badge" id="userBadge">
+    <div class="user-avatar" id="userAvatar">?</div>
+    <span class="user-email-label" id="userEmailLabel"></span>
+    <button class="logout-btn" id="logoutBtn" title="Çıxış">🚪</button>
+</div>
             </nav>
         </header>
 
@@ -761,5 +769,29 @@
         </footer>
 
         <script src="FLL.js"></script>
+        <div class="auth-modal-overlay" id="authModal">
+    <div class="auth-modal-box">
+        <button class="auth-modal-close" id="authModalClose">✕</button>
+        <h2 id="authTitle">Giriş Et</h2>
+        <p class="auth-modal-sub">AzerHistory 3D-yə xoş gəlmisiniz</p>
+        <form id="authForm">
+            <div class="auth-field">
+                <label>Email</label>
+                <input type="email" id="authEmail" required placeholder="sen@gmail.com" />
+            </div>
+            <div class="auth-field">
+                <label>Şifrə</label>
+                <input type="password" id="authPassword" required minlength="6" placeholder="••••••••" />
+            </div>
+            <p id="authError"></p>
+            <button type="submit" id="authSubmitBtn">Giriş Et</button>
+        </form>
+        <button id="authToggleMode">Hesabın yoxdur? Qeydiyyatdan keç</button>
+    </div>
+</div>
+
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="comments.js"></script>
     </body>
 </html>
