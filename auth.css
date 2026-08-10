@@ -1,0 +1,238 @@
+/* ================================================
+   auth.css — Giriş/Qeydiyyat modalı + Şərh sistemi
+   ================================================ */
+
+/* ─── AUTH BUTTON (navbar) ────────────────────── */
+.auth-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 18px;
+    background: rgba(0,195,255,0.1);
+    border: 1px solid #00C3FF;
+    color: #00C3FF;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+.auth-btn:hover {
+    background: rgba(0,195,255,0.22);
+    transform: translateY(-1px);
+}
+
+/* ─── USER BADGE (giriş edəndən sonra) ────────── */
+.user-badge {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 8px 5px 5px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+}
+.user-avatar {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00C3FF, #0891B2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: #000;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+.user-email-label {
+    font-size: 12px; color: #ccc; font-weight: 500;
+    max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.logout-btn {
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 50%;
+    transition: color 0.3s, background 0.3s;
+}
+.logout-btn:hover { color: #FF6B6B; background: rgba(255,107,107,0.1); }
+
+/* ─── AUTH MODAL ───────────────────────────────── */
+.auth-modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(6px);
+    z-index: 3000;
+    align-items: center; justify-content: center;
+    animation: fadeIn 0.25s ease;
+}
+.auth-modal-overlay.open { display: flex; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.auth-modal-box {
+    background: #0a0f18;
+    border: 1px solid rgba(0,195,255,0.25);
+    border-radius: 20px;
+    padding: 36px 32px;
+    width: 100%; max-width: 380px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    animation: slideUp 0.3s ease;
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.auth-modal-close {
+    position: absolute; top: 16px; right: 16px;
+    background: transparent; border: none;
+    color: #888; font-size: 20px; cursor: pointer;
+    width: 30px; height: 30px; border-radius: 50%;
+    transition: background 0.3s, color 0.3s;
+}
+.auth-modal-close:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
+#authTitle {
+    font-family: "Cinzel", serif;
+    font-size: 22px; font-weight: 700;
+    color: #fff; margin-bottom: 6px; text-align: center;
+}
+.auth-modal-sub {
+    text-align: center; color: #888; font-size: 13px; margin-bottom: 26px;
+}
+
+.auth-field { margin-bottom: 16px; }
+.auth-field label {
+    display: block; font-size: 12px; color: #999;
+    margin-bottom: 6px; font-weight: 500;
+}
+.auth-field input {
+    width: 100%;
+    padding: 11px 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    transition: border-color 0.3s;
+}
+.auth-field input:focus {
+    outline: none;
+    border-color: #00C3FF;
+}
+
+#authError {
+    font-size: 12.5px;
+    margin-bottom: 14px;
+    min-height: 16px;
+    text-align: center;
+}
+
+#authSubmitBtn {
+    width: 100%;
+    padding: 12px;
+    background: #00C3FF;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    transition: background 0.3s, transform 0.2s;
+}
+#authSubmitBtn:hover:not(:disabled) { background: #33d0ff; transform: translateY(-1px); }
+#authSubmitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+#authToggleMode {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    background: none; border: none;
+    color: #00C3FF;
+    font-size: 12.5px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    text-decoration: underline;
+}
+
+/* ─── COMMENTS SECTION ─────────────────────────── */
+.comments-wrapper {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+.comments-title {
+    font-size: 13px; font-weight: 700; color: #00C3FF;
+    margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.comment-input-row {
+    display: flex; gap: 8px; margin-bottom: 18px;
+}
+.comment-input {
+    flex: 1;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color: #fff; font-size: 13px;
+    font-family: "Poppins", sans-serif;
+}
+.comment-input:focus { outline: none; border-color: #00C3FF; }
+.comment-send-btn {
+    padding: 0 18px;
+    background: #00C3FF; color: #000;
+    border: none; border-radius: 10px;
+    font-weight: 700; font-size: 13px; cursor: pointer;
+    transition: background 0.3s;
+}
+.comment-send-btn:hover { background: #33d0ff; }
+
+.comments-list { display: flex; flex-direction: column; gap: 12px; max-height: 340px; overflow-y: auto; }
+
+.comment-item {
+    display: flex; gap: 10px;
+    padding: 12px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+}
+.comment-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: linear-gradient(135deg, #00C3FF, #0891B2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: #000;
+    flex-shrink: 0; text-transform: uppercase;
+}
+.comment-body { flex: 1; min-width: 0; }
+.comment-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 4px; gap: 8px;
+}
+.comment-author { font-size: 12.5px; font-weight: 600; color: #fff; }
+.comment-date { font-size: 10.5px; color: #666; flex-shrink: 0; }
+.comment-text { font-size: 13px; color: #ccc; line-height: 1.5; word-break: break-word; }
+.comment-delete {
+    background: none; border: none; color: #555;
+    cursor: pointer; font-size: 13px; align-self: flex-start;
+    transition: color 0.3s;
+}
+.comment-delete:hover { color: #FF6B6B; }
+
+.comments-loading, .comments-empty, .comments-error {
+    font-size: 12.5px; color: #666; text-align: center; padding: 16px 0;
+}
+
+/* ─── MOBILE ────────────────────────────────────── */
+@media (max-width: 600px) {
+    .auth-modal-box { padding: 28px 22px; }
+    .user-email-label { max-width: 60px; }
+}
