@@ -2,14 +2,14 @@
 /*  VARIABLES & RESET               */
 /* ================================ */
 :root {
-    --accent: #fb5b13;                       /* safety orange */
-    --accent2: #6f8f4d;                      /* olive drab */
-    --bg-dark: #161a14;                      /* woodland black */
-    --foreground: #ecece6;
-    --text-dim: #8f9688;
-    --glass-card: rgba(190, 205, 165, 0.035);
-    --card-elevated: rgba(190, 205, 165, 0.06);
-    --border: rgba(170, 190, 140, 0.12);
+    --accent: #d48c1a;                       /* electric amber */
+    --accent2: #a67c3d;                      /* muted warm bronze */
+    --bg-dark: #0a0a0a;                      /* near-black */
+    --foreground: #f5f5f5;
+    --text-dim: #8c8c8c;
+    --glass-card: rgba(255, 255, 255, 0.035);
+    --card-elevated: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.09);
 }
 
 *,
@@ -40,7 +40,7 @@ body {
     inset: 0;
     z-index: -5;
     background:
-        linear-gradient(rgba(22, 26, 20, 0.55), rgba(14, 17, 11, 0.75)),
+        linear-gradient(rgba(10, 10, 10, 0.6), rgba(6, 6, 6, 0.8)),
         url("backround.jpg") center / cover fixed,
         #000 url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
 }
@@ -59,14 +59,14 @@ body {
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: rgba(251, 91, 19, 0.06);
+    background: rgba(212, 140, 26, 0.06);
     filter: blur(120px);
     animation: floatBg 18s infinite alternate;
 }
 .particles::after {
     right: -100px;
     bottom: -100px;
-    background: rgba(111, 143, 77, 0.05);
+    background: rgba(166, 124, 61, 0.05);
     animation-delay: 7s;
 }
 @keyframes floatBg {
@@ -86,7 +86,7 @@ body {
     bottom: 28px;
     right: 28px;
     z-index: 999;
-    background: rgba(251, 91, 19, 0.1);
+    background: rgba(212, 140, 26, 0.1);
     border: 1px solid var(--accent);
     color: var(--accent);
     padding: 10px 20px;
@@ -101,7 +101,7 @@ body {
         transform 0.2s;
 }
 #musicBtn:hover {
-    background: rgba(251, 91, 19, 0.25);
+    background: rgba(212, 140, 26, 0.25);
     transform: translateY(-2px);
 }
 
@@ -134,10 +134,10 @@ header {
     width: 40px;
     height: 40px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(251, 91, 19, 0.35);
+    box-shadow: 0 0 20px rgba(212, 140, 26, 0.35);
 }
 .logo-text {
-    font-family: "Oswald", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: 700;
     font-size: 20px;
     text-transform: uppercase;
@@ -216,7 +216,7 @@ header {
 .lang-btn:hover {
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(251, 91, 19, 0.08);
+    background: rgba(212, 140, 26, 0.08);
 }
 
 .contact-links {
@@ -268,7 +268,7 @@ header {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: radial-gradient(ellipse at 50% 60%, rgba(251, 91, 19, 0.08) 0%, transparent 60%),
+    background: radial-gradient(ellipse at 50% 60%, rgba(212, 140, 26, 0.08) 0%, transparent 60%),
         linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(5, 5, 5, 0.95) 100%);
 }
 
@@ -292,8 +292,8 @@ header {
 .hero-badge {
     display: inline-block;
     font-family: "Inter", sans-serif;
-    background: rgba(111, 143, 77, 0.12);
-    border: 1px solid rgba(111, 143, 77, 0.3);
+    background: rgba(166, 124, 61, 0.12);
+    border: 1px solid rgba(166, 124, 61, 0.3);
     color: var(--accent2);
     padding: 5px 18px;
     border-radius: 30px;
@@ -305,7 +305,7 @@ header {
 }
 
 .hero-content h1 {
-    font-family: "Oswald", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 62px;
     font-weight: 700;
     text-transform: uppercase;
@@ -337,14 +337,14 @@ header {
 .btn-main {
     padding: 14px 42px;
     background: var(--accent);
-    color: #161a14;
+    color: #0a0a0a;
     text-decoration: none;
     font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     border-radius: 3px;
-    box-shadow: 0 10px 30px rgba(251, 91, 19, 0.35);
+    box-shadow: 0 10px 30px rgba(212, 140, 26, 0.35);
     transition:
         transform 0.3s,
         box-shadow 0.3s;
@@ -352,7 +352,7 @@ header {
 }
 .btn-main:hover {
     transform: translateY(-3px);
-    box-shadow: 0 16px 40px rgba(251, 91, 19, 0.5);
+    box-shadow: 0 16px 40px rgba(212, 140, 26, 0.5);
 }
 .btn-main::after {
     content: "→";
@@ -382,7 +382,7 @@ header {
 }
 .btn-outline:hover {
     border-color: var(--accent);
-    background: rgba(251, 91, 19, 0.08);
+    background: rgba(212, 140, 26, 0.08);
 }
 
 /* Hero stats */
@@ -418,8 +418,9 @@ header {
     content: "\f1b2";
 } /* fa-cube */
 .stat-num {
-    font-family: "Oswald", sans-serif;
-    font-weight: 700;
+    font-family: "Bebas Neue", "Space Grotesk", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
     font-size: 30px;
     color: var(--accent);
     line-height: 1;
@@ -476,7 +477,7 @@ section {
 
 .section-title {
     text-align: center;
-    font-family: "Oswald", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 36px;
     font-weight: 700;
     text-transform: uppercase;
@@ -505,7 +506,7 @@ section {
     background: var(--accent);
     margin: 14px auto 0;
     border-radius: 2px;
-    box-shadow: 0 0 12px rgba(251, 91, 19, 0.5);
+    box-shadow: 0 0 12px rgba(212, 140, 26, 0.5);
 }
 @keyframes bracketReveal {
     from {
@@ -559,8 +560,8 @@ section {
 }
 .model-showcase:hover {
     transform: translateY(-8px);
-    border-color: rgba(251, 91, 19, 0.35);
-    box-shadow: 0 0 40px rgba(251, 91, 19, 0.15);
+    border-color: rgba(212, 140, 26, 0.35);
+    box-shadow: 0 0 40px rgba(212, 140, 26, 0.15);
 }
 .model-showcase.reverse {
     flex-direction: row-reverse;
@@ -592,8 +593,8 @@ section {
     right: 8px;
     width: 18px;
     height: 18px;
-    border-bottom: 2px solid rgba(251, 91, 19, 0.5);
-    border-right: 2px solid rgba(251, 91, 19, 0.5);
+    border-bottom: 2px solid rgba(212, 140, 26, 0.5);
+    border-right: 2px solid rgba(212, 140, 26, 0.5);
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
@@ -604,17 +605,17 @@ section {
 
 /* Featured exhibit treatment — orange frame + floating tag */
 .model-showcase.featured {
-    border: 1.5px solid rgba(251, 91, 19, 0.55);
+    border: 1.5px solid rgba(212, 140, 26, 0.55);
     box-shadow:
-        0 0 0 1px rgba(251, 91, 19, 0.12),
-        0 0 50px rgba(251, 91, 19, 0.1);
+        0 0 0 1px rgba(212, 140, 26, 0.12),
+        0 0 50px rgba(212, 140, 26, 0.1);
 }
 .featured-badge {
     position: absolute;
     top: -14px;
     left: 40px;
     background: var(--accent);
-    color: #161a14;
+    color: #0a0a0a;
     font-family: "Inter", sans-serif;
     font-size: 11px;
     font-weight: 800;
@@ -622,7 +623,7 @@ section {
     text-transform: uppercase;
     padding: 6px 16px;
     border-radius: 3px;
-    box-shadow: 0 6px 16px rgba(251, 91, 19, 0.35);
+    box-shadow: 0 6px 16px rgba(212, 140, 26, 0.35);
     z-index: 3;
 }
 
@@ -645,21 +646,20 @@ model-viewer {
 .category-tag {
     display: inline-block;
     font-family: "Inter", sans-serif;
-    background: rgba(251, 91, 19, 0.1);
-    border: 1px solid rgba(251, 91, 19, 0.28);
+    background: rgba(212, 140, 26, 0.1);
+    border: 1px solid rgba(212, 140, 26, 0.28);
     color: var(--accent);
     padding: 4px 14px;
-    border-radius: 2px;
+    border-radius: 4px;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     margin-bottom: 12px;
-    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
 }
 
 .info-part h2 {
-    font-family: "Oswald", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 28px;
     font-weight: 600;
     text-transform: uppercase;
@@ -708,7 +708,7 @@ model-viewer {
 
 .historical-context {
     padding: 18px;
-    background: rgba(190, 205, 165, 0.02);
+    background: rgba(255, 255, 255, 0.02);
     border-left: 3px solid var(--accent);
     border-radius: 2px;
     position: relative;
@@ -729,10 +729,10 @@ model-viewer {
     position: absolute;
     right: 10px;
     top: -22px;
-    font-family: "Oswald", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 100px;
     font-weight: 700;
-    color: rgba(251, 91, 19, 0.08);
+    color: rgba(212, 140, 26, 0.08);
     line-height: 1;
     pointer-events: none;
 }
@@ -741,7 +741,7 @@ model-viewer {
     position: absolute;
     right: 14px;
     top: 12px;
-    color: rgba(251, 91, 19, 0.25);
+    color: rgba(212, 140, 26, 0.25);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -817,7 +817,7 @@ model-viewer {
     background: var(--accent);
     border: 2px solid var(--bg-dark);
     transform: translateX(-50%);
-    box-shadow: 0 0 12px rgba(251, 91, 19, 0.6);
+    box-shadow: 0 0 12px rgba(212, 140, 26, 0.6);
     z-index: 2;
     transition:
         transform 0.3s,
@@ -825,7 +825,7 @@ model-viewer {
 }
 .timeline-item:hover .timeline-dot {
     transform: translateX(-50%) scale(1.4);
-    box-shadow: 0 0 20px rgba(251, 91, 19, 0.9);
+    box-shadow: 0 0 20px rgba(212, 140, 26, 0.9);
 }
 
 .timeline-card {
@@ -857,12 +857,14 @@ model-viewer {
 }
 .timeline-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(251, 91, 19, 0.12);
+    box-shadow: 0 10px 30px rgba(212, 140, 26, 0.12);
 }
 
 .tl-year {
-    font-size: 11px;
-    font-weight: 700;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
     color: var(--accent);
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -873,7 +875,7 @@ model-viewer {
     margin-bottom: 8px;
 }
 .timeline-card h3 {
-    font-family: "Oswald", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
@@ -898,7 +900,7 @@ model-viewer {
     align-items: center;
     gap: 10px;
     padding: 14px 36px;
-    background: rgba(251, 91, 19, 0.1);
+    background: rgba(212, 140, 26, 0.1);
     border: 1.5px solid var(--accent);
     color: var(--accent);
     font-family: "Inter", sans-serif;
@@ -914,9 +916,9 @@ model-viewer {
         box-shadow 0.3s;
 }
 .btn-timeline-toggle:hover {
-    background: rgba(251, 91, 19, 0.18);
+    background: rgba(212, 140, 26, 0.18);
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(251, 91, 19, 0.25);
+    box-shadow: 0 10px 30px rgba(212, 140, 26, 0.25);
 }
 
 /* ================================ */
@@ -924,7 +926,7 @@ model-viewer {
 /* ================================ */
 .map-box {
     text-align: center;
-    background: rgba(190, 205, 165, 0.025);
+    background: rgba(255, 255, 255, 0.025);
     padding: 30px;
     border-radius: 6px;
     border: 1px solid var(--border);
@@ -962,8 +964,8 @@ model-viewer {
     width: 100%;
     border-radius: 14px;
     overflow: hidden;
-    border: 1px solid rgba(251, 91, 19, 0.15);
-    box-shadow: 0 0 30px rgba(251, 91, 19, 0.08);
+    border: 1px solid rgba(212, 140, 26, 0.15);
+    box-shadow: 0 0 30px rgba(212, 140, 26, 0.08);
 }
 
 .map-tabs {
@@ -988,7 +990,7 @@ model-viewer {
 .map-tab:hover {
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(251, 91, 19, 0.08);
+    background: rgba(212, 140, 26, 0.08);
 }
 .map-tab.active {
     border-bottom: 2px solid var(--accent);
@@ -1078,7 +1080,7 @@ footer::before {
     gap: 20px;
 }
 .footer-logo {
-    font-family: "Oswald", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
@@ -1112,8 +1114,7 @@ footer p {
 .btn-timeline-toggle,
 .comment-send-btn,
 #authSubmitBtn {
-    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-    border-radius: 0 !important;
+    border-radius: 4px !important;
 }
 
 /* ================================ */
@@ -1127,8 +1128,8 @@ body::before {
     inset: 0;
     z-index: -4;
     background-image:
-        linear-gradient(rgba(170, 190, 140, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(170, 190, 140, 0.045) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
     background-size: 42px 42px;
     pointer-events: none;
     mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 40%, transparent 100%);
@@ -1201,4 +1202,50 @@ body::before {
         flex-direction: column;
         text-align: center;
     }
+}
+
+/* ================================ */
+/*  SIGNAL WAVEFORM — hero accent    */
+/* ================================ */
+.waveform {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    width: 200px;
+    height: 40px;
+    margin: 4px auto 22px;
+}
+.waveform span {
+    display: block;
+    width: 6px;
+    background: var(--accent);
+    border-radius: 2px;
+    transform-origin: bottom;
+    animation: wavePulse 2s ease-in-out infinite;
+}
+.waveform span:nth-child(1)  { height: 8px;  animation-delay: 0s; }
+.waveform span:nth-child(2)  { height: 24px; animation-delay: 0.05s; }
+.waveform span:nth-child(3)  { height: 16px; animation-delay: 0.1s; }
+.waveform span:nth-child(4)  { height: 36px; animation-delay: 0.15s; }
+.waveform span:nth-child(5)  { height: 12px; animation-delay: 0.2s; }
+.waveform span:nth-child(6)  { height: 40px; animation-delay: 0.25s; }
+.waveform span:nth-child(7)  { height: 20px; animation-delay: 0.3s; }
+.waveform span:nth-child(8)  { height: 32px; animation-delay: 0.35s; }
+.waveform span:nth-child(9)  { height: 10px; animation-delay: 0.4s; }
+.waveform span:nth-child(10) { height: 28px; animation-delay: 0.45s; }
+.waveform span:nth-child(11) { height: 14px; animation-delay: 0.5s; }
+.waveform span:nth-child(12) { height: 38px; animation-delay: 0.55s; }
+.waveform span:nth-child(13) { height: 22px; animation-delay: 0.6s; }
+.waveform span:nth-child(14) { height: 18px; animation-delay: 0.65s; }
+.waveform span:nth-child(15) { height: 34px; animation-delay: 0.7s; }
+.waveform span:nth-child(16) { height: 8px;  animation-delay: 0.75s; }
+.waveform span:nth-child(17) { height: 30px; animation-delay: 0.8s; }
+.waveform span:nth-child(18) { height: 16px; animation-delay: 0.85s; }
+.waveform span:nth-child(19) { height: 26px; animation-delay: 0.9s; }
+.waveform span:nth-child(20) { height: 40px; animation-delay: 0.95s; }
+
+@keyframes wavePulse {
+    0%, 100% { transform: scaleY(0.4); opacity: 0.6; }
+    50%      { transform: scaleY(1);   opacity: 1; }
 }

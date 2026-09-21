@@ -2,12 +2,13 @@
 /*  VARIABLES & RESET               */
 /* ================================ */
 :root {
-    --accent: #00c3ff;
-    --accent2: #c8a96e;
-    --bg-dark: #050505;
-    --text-dim: #b0b0b0;
-    --glass-card: rgba(255, 255, 255, 0.03);
-    --border: rgba(255, 255, 255, 0.07);
+    --accent: #d48c1a;
+    --accent2: #a67c3d;
+    --bg-dark: #0a0a0a;
+    --foreground: #f5f5f5;
+    --text-dim: #8c8c8c;
+    --glass-card: rgba(255, 255, 255, 0.035);
+    --border: rgba(255, 255, 255, 0.09);
 }
 
 *,
@@ -22,9 +23,9 @@ html {
 }
 
 body {
-    background: var(--bg-dark);
-    color: #fff;
-    font-family: "Poppins", sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--foreground);
+    font-family: "Inter", sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -36,7 +37,10 @@ body {
     position: fixed;
     inset: 0;
     z-index: -5;
-    background: #000 url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+    background:
+        linear-gradient(rgba(10, 10, 10, 0.6), rgba(6, 6, 6, 0.8)),
+        url("backround.jpg") center / cover fixed,
+        #000 url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
 }
 
 .particles {
@@ -53,14 +57,14 @@ body {
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: rgba(0, 195, 255, 0.06);
+    background: rgba(212, 140, 26, 0.06);
     filter: blur(120px);
     animation: floatBg 18s infinite alternate;
 }
 .particles::after {
     right: -100px;
     bottom: -100px;
-    background: rgba(200, 169, 110, 0.05);
+    background: rgba(166, 124, 61, 0.05);
     animation-delay: 7s;
 }
 @keyframes floatBg {
@@ -116,7 +120,7 @@ header {
 }
 
 .logo-text {
-    font-family: "Cinzel", serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: 700;
     font-size: 18px;
     letter-spacing: 1px;
@@ -138,14 +142,14 @@ header {
     font-size: 11px;
     font-weight: 600;
     cursor: pointer;
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     transition: all 0.3s;
 }
 .lang-btn.active,
 .lang-btn:hover {
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(0, 195, 255, 0.08);
+    background: rgba(212, 140, 26, 0.08);
 }
 
 /* ================================ */
@@ -158,14 +162,14 @@ header {
     justify-content: center;
     text-align: center;
     padding: 120px 8% 60px;
-    background: radial-gradient(ellipse at 50% 80%, rgba(0, 195, 255, 0.07) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 50% 80%, rgba(212, 140, 26, 0.07) 0%, transparent 60%);
     border-bottom: 1px solid var(--border);
 }
 
 .tl-badge {
     display: inline-block;
-    background: rgba(200, 169, 110, 0.1);
-    border: 1px solid rgba(200, 169, 110, 0.25);
+    background: rgba(166, 124, 61, 0.1);
+    border: 1px solid rgba(166, 124, 61, 0.25);
     color: var(--accent2);
     padding: 5px 18px;
     border-radius: 30px;
@@ -177,7 +181,7 @@ header {
 }
 
 .tl-page-hero h1 {
-    font-family: "Cinzel", serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 46px;
     font-weight: 900;
     margin-bottom: 16px;
@@ -243,7 +247,7 @@ header {
     background: var(--accent);
     border: 2px solid var(--bg-dark);
     transform: translateX(-50%);
-    box-shadow: 0 0 12px rgba(0, 195, 255, 0.6);
+    box-shadow: 0 0 12px rgba(212, 140, 26, 0.6);
     z-index: 2;
     transition:
         transform 0.3s,
@@ -251,7 +255,7 @@ header {
 }
 .timeline-item:hover .timeline-dot {
     transform: translateX(-50%) scale(1.5);
-    box-shadow: 0 0 22px rgba(0, 195, 255, 1);
+    box-shadow: 0 0 22px rgba(212, 140, 26, 1);
 }
 
 .timeline-card {
@@ -268,15 +272,16 @@ header {
 }
 .timeline-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 36px rgba(0, 195, 255, 0.14);
-    border-color: rgba(0, 195, 255, 0.25);
+    box-shadow: 0 12px 36px rgba(212, 140, 26, 0.14);
+    border-color: rgba(212, 140, 26, 0.25);
 }
 
 .tl-year {
-    font-size: 10px;
-    font-weight: 700;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
     color: var(--accent);
-    letter-spacing: 1.5px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
@@ -286,10 +291,11 @@ header {
     line-height: 1;
 }
 .timeline-card h3 {
-    font-family: "Cinzel", serif;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
     font-size: 17px;
     margin-bottom: 10px;
-    color: #fff;
+    color: var(--foreground);
 }
 .timeline-card p {
     font-size: 13.5px;
