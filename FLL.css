@@ -26,7 +26,7 @@ html {
 
 body {
     background:
-        linear-gradient(rgba(22, 26, 20, 0.93), rgba(14, 17, 11, 0.97)),
+        linear-gradient(rgba(22, 26, 20, 0.55), rgba(14, 17, 11, 0.75)),
         url("backround.jpg")
             center / cover fixed;
     background-color: var(--bg-dark);
@@ -162,20 +162,35 @@ header {
     transition: color 0.3s;
 }
 .navbar a::after {
+    display: none !important;
+}
+.navbar a {
+    padding: 2px 4px;
+    text-transform: uppercase;
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+}
+.navbar a::before {
     content: "";
     position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--accent);
-    transition: width 0.3s;
+    top: -2px;
+    left: -2px;
+    width: 8px;
+    height: 8px;
+    border-top: 1.5px solid var(--accent);
+    border-left: 1.5px solid var(--accent);
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+.navbar a {
+    position: relative;
 }
 .navbar a:hover {
     color: #fff;
 }
-.navbar a:hover::after {
-    width: 100%;
+.navbar a:hover::before {
+    opacity: 1;
 }
 
 /* Language switcher */
@@ -340,6 +355,15 @@ header {
     transform: translateY(-3px);
     box-shadow: 0 16px 40px rgba(251, 91, 19, 0.5);
 }
+.btn-main::after {
+    content: "→";
+    margin-left: 10px;
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+.btn-main:hover::after {
+    transform: translateX(4px);
+}
 
 .btn-outline {
     padding: 14px 42px;
@@ -374,12 +398,30 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 2px;
+    position: relative;
 }
+.stat::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--accent);
+    font-size: 14px;
+    display: block;
+    margin-bottom: 6px;
+    opacity: 0.85;
+}
+.stat:nth-child(1)::before {
+    content: "\f66f";
+} /* fa-landmark */
+.stat:nth-child(2)::before {
+    content: "\f017";
+} /* fa-clock */
+.stat:nth-child(3)::before {
+    content: "\f1b2";
+} /* fa-cube */
 .stat-num {
     font-family: "Oswald", sans-serif;
     font-weight: 700;
     font-size: 30px;
-    font-weight: 700;
     color: var(--accent);
     line-height: 1;
 }
@@ -443,6 +485,18 @@ section {
     margin-bottom: 70px;
     color: var(--foreground);
     position: relative;
+    padding-top: 6px;
+}
+.section-title::before {
+    content: "";
+    display: flex;
+    width: 22px;
+    height: 12px;
+    margin: 0 auto 16px;
+    border-left: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    opacity: 0;
+    animation: bracketReveal 0.6s ease 0.05s forwards;
 }
 .section-title::after {
     content: "";
@@ -452,6 +506,38 @@ section {
     background: var(--accent);
     margin: 14px auto 0;
     border-radius: 2px;
+    box-shadow: 0 0 12px rgba(251, 91, 19, 0.5);
+}
+@keyframes bracketReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scaleX(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scaleX(1);
+    }
+}
+
+/* Eyebrow label — small tracked tag above headings */
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    margin-bottom: 14px;
+}
+#models .eyebrow,
+#timeline .eyebrow,
+#museums .eyebrow {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 /* ================================ */
@@ -466,6 +552,8 @@ section {
     padding: 40px;
     border-radius: 6px;
     border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
     transition:
         transform 0.5s ease,
         box-shadow 0.5s ease;
@@ -477,6 +565,66 @@ section {
 }
 .model-showcase.reverse {
     flex-direction: row-reverse;
+}
+
+/* top rank-stripe reveal on hover */
+.model-showcase::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+.model-showcase:hover::before {
+    transform: scaleX(1);
+}
+
+/* corner brackets on hover */
+.model-showcase::after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 18px;
+    height: 18px;
+    border-bottom: 2px solid rgba(251, 91, 19, 0.5);
+    border-right: 2px solid rgba(251, 91, 19, 0.5);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+.model-showcase:hover::after {
+    opacity: 1;
+}
+
+/* Featured exhibit treatment — orange frame + floating tag */
+.model-showcase.featured {
+    border: 1.5px solid rgba(251, 91, 19, 0.55);
+    box-shadow:
+        0 0 0 1px rgba(251, 91, 19, 0.12),
+        0 0 50px rgba(251, 91, 19, 0.1);
+}
+.featured-badge {
+    position: absolute;
+    top: -14px;
+    left: 40px;
+    background: var(--accent);
+    color: #161a14;
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 3px;
+    box-shadow: 0 6px 16px rgba(251, 91, 19, 0.35);
+    z-index: 3;
 }
 
 .viewer-part {
@@ -502,12 +650,13 @@ model-viewer {
     border: 1px solid rgba(251, 91, 19, 0.28);
     color: var(--accent);
     padding: 4px 14px;
-    border-radius: 4px;
+    border-radius: 2px;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.18em;
     margin-bottom: 12px;
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
 }
 
 .info-part h2 {
@@ -533,6 +682,17 @@ model-viewer {
 .quick-facts span {
     font-size: 13px;
     color: var(--text-dim);
+    position: relative;
+    padding-left: 22px;
+}
+.quick-facts span::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 12px;
 }
 .quick-facts strong {
     color: var(--foreground);
@@ -552,6 +712,8 @@ model-viewer {
     background: rgba(190, 205, 165, 0.02);
     border-left: 3px solid var(--accent);
     border-radius: 2px;
+    position: relative;
+    overflow: hidden;
 }
 .historical-context h4 {
     color: var(--accent);
@@ -562,6 +724,28 @@ model-viewer {
     font-size: 13px;
     font-style: italic;
     color: #888;
+}
+.historical-context::after {
+    content: "\201D";
+    position: absolute;
+    right: 10px;
+    top: -22px;
+    font-family: "Oswald", sans-serif;
+    font-size: 100px;
+    font-weight: 700;
+    color: rgba(251, 91, 19, 0.08);
+    line-height: 1;
+    pointer-events: none;
+}
+.historical-context::before {
+    content: "//";
+    position: absolute;
+    right: 14px;
+    top: 12px;
+    color: rgba(251, 91, 19, 0.25);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 /* Empty / image box */
@@ -600,7 +784,6 @@ model-viewer {
     opacity: 1;
 }
 
-/* Central line */
 .timeline-container::before {
     content: "";
     position: absolute;
@@ -652,10 +835,26 @@ model-viewer {
     border-radius: 6px;
     padding: 22px 24px;
     max-width: 360px;
+    position: relative;
+    overflow: hidden;
     transition:
         transform 0.4s,
         box-shadow 0.4s;
-    position: relative;
+}
+.timeline-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+.timeline-card:hover::before {
+    transform: scaleX(1);
 }
 .timeline-card:hover {
     transform: translateY(-5px);
@@ -688,6 +887,39 @@ model-viewer {
     line-height: 1.7;
 }
 
+.timeline-header {
+    text-align: center;
+}
+
+/* ================================ */
+/*  TIMELINE TOGGLE BUTTON          */
+/* ================================ */
+.btn-timeline-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 36px;
+    background: rgba(251, 91, 19, 0.1);
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 3px;
+    cursor: pointer;
+    transition:
+        background 0.3s,
+        transform 0.2s,
+        box-shadow 0.3s;
+}
+.btn-timeline-toggle:hover {
+    background: rgba(251, 91, 19, 0.18);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(251, 91, 19, 0.25);
+}
+
 /* ================================ */
 /*  MAP                             */
 /* ================================ */
@@ -697,6 +929,23 @@ model-viewer {
     padding: 30px;
     border-radius: 6px;
     border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+.map-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+.map-box:hover::before {
+    transform: scaleX(1);
 }
 .responsive-map {
     width: 100%;
@@ -710,26 +959,12 @@ model-viewer {
     font-size: 14px;
 }
 
-/* ================================ */
-/*  REVEAL                          */
-/* ================================ */
-.reveal {
-    opacity: 0;
-    transform: translateY(60px);
-    transition:
-        opacity 0.9s ease,
-        transform 0.9s ease;
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ================================ */
-/*  TIMELINE TOGGLE BUTTON (nav)    */
-/* ================================ */
-.timeline-header {
-    text-align: center;
+.gmap-wrap {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(251, 91, 19, 0.15);
+    box-shadow: 0 0 30px rgba(251, 91, 19, 0.08);
 }
 
 .map-tabs {
@@ -755,6 +990,10 @@ model-viewer {
     border-color: var(--accent);
     color: var(--accent);
     background: rgba(251, 91, 19, 0.08);
+}
+.map-tab.active {
+    border-bottom: 2px solid var(--accent);
+    border-radius: 3px 3px 0 0;
 }
 .map-panel {
     display: none;
@@ -789,11 +1028,48 @@ model-viewer {
 }
 
 /* ================================ */
+/*  REVEAL                          */
+/* ================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================ */
+/*  COMMENTS                        */
+/* ================================ */
+.comment-item {
+    position: relative;
+    overflow: hidden;
+}
+.comment-send-btn,
+#authSubmitBtn {
+    padding-right: 22px;
+}
+
+/* ================================ */
 /*  FOOTER                          */
 /* ================================ */
 footer {
     border-top: 1px solid #111;
     padding: 50px 8%;
+    position: relative;
+}
+footer::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 60%);
 }
 .footer-inner {
     display: flex;
@@ -827,6 +1103,36 @@ footer p {
 }
 .footer-links a:hover {
     color: var(--accent);
+}
+
+/* ================================ */
+/*  BUTTONS — clipped tactical corner */
+/* ================================ */
+.btn-main,
+.btn-outline,
+.btn-timeline-toggle,
+.comment-send-btn,
+#authSubmitBtn {
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+    border-radius: 0 !important;
+}
+
+/* ================================ */
+/*  SUBTLE INDUSTRIAL GRID TEXTURE  */
+/*  (pseudo-element — does NOT      */
+/*  touch body's own background)    */
+/* ================================ */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -4;
+    background-image:
+        linear-gradient(rgba(170, 190, 140, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(170, 190, 140, 0.045) 1px, transparent 1px);
+    background-size: 42px 42px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 40%, transparent 100%);
 }
 
 /* ================================ */
@@ -876,7 +1182,6 @@ footer p {
         margin-left: 0;
     }
 
-    /* Timeline mobile */
     .timeline-container::before {
         left: 20px;
     }
@@ -897,373 +1202,4 @@ footer p {
         flex-direction: column;
         text-align: center;
     }
-}
-
-/* ================================ */
-/*  TIMELINE TOGGLE BUTTON          */
-/* ================================ */
-.btn-timeline-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 36px;
-    background: rgba(251, 91, 19, 0.1);
-    border: 1.5px solid var(--accent);
-    color: var(--accent);
-    font-family: "Inter", sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 3px;
-    cursor: pointer;
-    transition:
-        background 0.3s,
-        transform 0.2s,
-        box-shadow 0.3s;
-    letter-spacing: 0.5px;
-}
-.btn-timeline-toggle:hover {
-    background: rgba(251, 91, 19, 0.18);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(251, 91, 19, 0.25);
-}
-
-/* ================================ */
-/*  GOOGLE MAPS WRAP                */
-/* ================================ */
-.gmap-wrap {
-    width: 100%;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid rgba(251, 91, 19, 0.15);
-    box-shadow: 0 0 30px rgba(251, 91, 19, 0.08);
-}
-
-/* ================================ */
-/*  TACTICAL GRID BACKGROUND        */
-/* ================================ */
-body {
-    background-image:
-        linear-gradient(rgba(251, 91, 19, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(251, 91, 19, 0.035) 1px, transparent 1px);
-    background-size: 42px 42px;
-    background-position: center top;
-    background-attachment: fixed;
-}
-
-/* ================================ */
-/*  SECTION TITLE — bracket eyebrow */
-/*  (replaces the old splat blob)   */
-/* ================================ */
-.section-title {
-    position: relative;
-    padding-top: 6px;
-}
-.section-title::before {
-    content: "";
-    display: flex;
-    width: 22px;
-    height: 12px;
-    margin: 0 auto 16px;
-    border-left: 2px solid var(--accent);
-    border-bottom: 2px solid var(--accent);
-    transform: rotate(0deg);
-    opacity: 0;
-    animation: bracketReveal 0.6s ease 0.05s forwards;
-}
-.section-title::after {
-    background: var(--accent);
-    box-shadow: 0 0 12px rgba(251, 91, 19, 0.5);
-}
-@keyframes bracketReveal {
-    from { opacity: 0; transform: translateY(-8px) scaleX(0.5); }
-    to   { opacity: 1; transform: translateY(0) scaleX(1); }
-}
-
-/* ================================ */
-/*  BUTTONS — clipped tactical corner */
-/* ================================ */
-.btn-main,
-.btn-outline,
-.btn-timeline-toggle,
-.comment-send-btn,
-#authSubmitBtn {
-    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-    border-radius: 0 !important;
-}
-
-/* ================================ */
-/*  HISTORICAL CONTEXT — quote mark */
-/* ================================ */
-.historical-context {
-    position: relative;
-    overflow: hidden;
-}
-.historical-context::after {
-    content: "”";
-    position: absolute;
-    right: 10px;
-    top: -22px;
-    font-family: "Oswald", sans-serif;
-    font-size: 100px;
-    font-weight: 700;
-    color: rgba(251, 91, 19, 0.08);
-    line-height: 1;
-    pointer-events: none;
-}
-
-/* ================================ */
-/*  CARD TOP RANK-STRIPE ON HOVER   */
-/* ================================ */
-.model-showcase,
-.timeline-card,
-.map-box,
-.comment-item {
-    position: relative;
-    overflow: hidden;
-}
-.model-showcase::before,
-.timeline-card::before,
-.map-box::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-}
-.model-showcase:hover::before,
-.timeline-card:hover::before,
-.map-box:hover::before {
-    transform: scaleX(1);
-}
-
-/* ================================ */
-/*  HERO STATS — icon glyphs        */
-/* ================================ */
-.hero-stats .stat {
-    position: relative;
-}
-.hero-stats .stat::before {
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    color: var(--accent);
-    font-size: 14px;
-    display: block;
-    margin-bottom: 6px;
-    opacity: 0.85;
-}
-.hero-stats .stat:nth-child(1)::before { content: "\f66f"; } /* fa-landmark */
-.hero-stats .stat:nth-child(2)::before { content: "\f017"; } /* fa-hourglass/clock */
-.hero-stats .stat:nth-child(3)::before { content: "\f1b2"; } /* fa-cube */
-
-/* ================================ */
-/*  NAV LINKS — tactical bracket hover (replaces underline) */
-/* ================================ */
-.navbar a::after {
-    display: none !important;
-}
-.navbar a {
-    padding: 2px 4px;
-    text-transform: uppercase;
-    font-size: 12.5px;
-    letter-spacing: 0.08em;
-    font-weight: 500;
-}
-.navbar a::before {
-    content: "";
-    position: absolute;
-    top: -2px; left: -2px;
-    width: 8px; height: 8px;
-    border-top: 1.5px solid var(--accent);
-    border-left: 1.5px solid var(--accent);
-    opacity: 0;
-    transition: opacity 0.25s;
-}
-.navbar a {
-    position: relative;
-}
-.navbar a:hover::before {
-    opacity: 1;
-}
-
-/* ================================ */
-/*  CATEGORY TAG — squared, tactical */
-/* ================================ */
-.category-tag {
-    border-radius: 2px !important;
-}
-
-/* ================================ */
-/*  COMMENT SEND / AUTH BTN spacing fix for clip-path */
-/* ================================ */
-.comment-send-btn,
-#authSubmitBtn {
-    padding-right: 22px;
-}
-
-/* ================================ */
-/*  BLACKTHORN-STYLE EFFECTS PACK   */
-/* ================================ */
-
-/* Subtle industrial grid texture behind everything */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -4;
-    background-image:
-        linear-gradient(rgba(170, 190, 140, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(170, 190, 140, 0.045) 1px, transparent 1px);
-    background-size: 42px 42px;
-    pointer-events: none;
-    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 40%, transparent 100%);
-}
-
-/* Eyebrow label — small tracked tag above headings */
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: "Inter", sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    margin-bottom: 14px;
-}
-
-/* Center eyebrows that sit above centered section titles */
-#models .eyebrow,
-#timeline .eyebrow,
-#museums .eyebrow {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-/* Checkmark-style quick facts, industrial dossier feel */
-.quick-facts span {
-    position: relative;
-    padding-left: 22px;
-}
-.quick-facts span::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 12px;
-}
-
-/* Primary CTA gets a directional arrow, like a call to action should */
-.btn-main::after {
-    content: "→";
-    margin-left: 10px;
-    display: inline-block;
-    transition: transform 0.25s ease;
-}
-.btn-main:hover::after {
-    transform: translateX(4px);
-}
-
-/* Featured exhibit treatment — orange frame + floating tag */
-.model-showcase.featured {
-    position: relative;
-    border: 1.5px solid rgba(251, 91, 19, 0.55);
-    box-shadow: 0 0 0 1px rgba(251, 91, 19, 0.12), 0 0 50px rgba(251, 91, 19, 0.1);
-}
-.featured-badge {
-    position: absolute;
-    top: -14px;
-    left: 40px;
-    background: var(--accent);
-    color: #161a14;
-    font-family: "Inter", sans-serif;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 3px;
-    box-shadow: 0 6px 16px rgba(251, 91, 19, 0.35);
-    z-index: 3;
-}
-
-/* Corner bracket accents on showcase cards — industrial/tactical framing */
-.model-showcase {
-    position: relative;
-}
-.model-showcase::before,
-.model-showcase::after {
-    content: "";
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border-color: rgba(251, 91, 19, 0.5);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-}
-.model-showcase::before {
-    top: 8px;
-    left: 8px;
-    border-top: 2px solid;
-    border-left: 2px solid;
-}
-.model-showcase::after {
-    bottom: 8px;
-    right: 8px;
-    border-bottom: 2px solid;
-    border-right: 2px solid;
-}
-.model-showcase:hover::before,
-.model-showcase:hover::after {
-    opacity: 1;
-}
-
-/* Category tag corner clipped like a stencilled stamp */
-.category-tag {
-    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
-}
-
-/* Historical-context block reads like a redacted dossier note */
-.historical-context {
-    position: relative;
-}
-.historical-context::before {
-    content: "//";
-    position: absolute;
-    right: 14px;
-    top: 12px;
-    color: rgba(251, 91, 19, 0.25);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-/* Map tabs: active tab gets a tactical underline instead of full pill fill */
-.map-tab.active {
-    background: rgba(251, 91, 19, 0.1);
-    border-bottom: 2px solid var(--accent);
-    border-radius: 3px 3px 0 0;
-}
-
-/* Footer top rule accent */
-footer {
-    position: relative;
-}
-footer::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent) 0%, transparent 60%);
 }
