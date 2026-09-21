@@ -27,7 +27,7 @@ html {
 body {
     background:
         linear-gradient(rgba(22, 26, 20, 0.93), rgba(14, 17, 11, 0.97)),
-        url("background.jpg")
+        url("backround.jpg")
             center / cover fixed;
     background-color: var(--bg-dark);
     color: var(--foreground);
