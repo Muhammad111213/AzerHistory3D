@@ -25,10 +25,6 @@ html {
 }
 
 body {
-    background:
-        linear-gradient(rgba(22, 26, 20, 0.55), rgba(14, 17, 11, 0.75)),
-        url("backround.jpg")
-            center / cover fixed;
     background-color: var(--bg-dark);
     color: var(--foreground);
     font-family: "Inter", sans-serif;
@@ -43,7 +39,10 @@ body {
     position: fixed;
     inset: 0;
     z-index: -5;
-    background: #000 url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+    background:
+        linear-gradient(rgba(22, 26, 20, 0.55), rgba(14, 17, 11, 0.75)),
+        url("backround.jpg") center / cover fixed,
+        #000 url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
 }
 
 .particles {
