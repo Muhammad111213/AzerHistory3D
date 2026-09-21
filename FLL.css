@@ -27,7 +27,7 @@ html {
 body {
     background:
         linear-gradient(rgba(22, 26, 20, 0.93), rgba(14, 17, 11, 0.97)),
-        url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Palace_of_the_Shirvanshahs_2.jpg/1280px-Palace_of_the_Shirvanshahs_2.jpg")
+        url("background.jpg")
             center / cover fixed;
     background-color: var(--bg-dark);
     color: var(--foreground);
@@ -902,10 +902,6 @@ footer p {
 /* ================================ */
 /*  TIMELINE TOGGLE BUTTON          */
 /* ================================ */
-.timeline-header {
-    text-align: center;
-}
-
 .btn-timeline-toggle {
     display: inline-flex;
     align-items: center;
@@ -998,24 +994,6 @@ body {
 }
 
 /* ================================ */
-/*  QUICK FACTS — checklist style   */
-/* ================================ */
-.quick-facts span {
-    position: relative;
-    padding-left: 22px;
-}
-.quick-facts span::before {
-    content: "\\f00c"; /* fa-check */
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    position: absolute;
-    left: 0;
-    top: 1px;
-    color: var(--accent);
-    font-size: 11px;
-}
-
-/* ================================ */
 /*  HISTORICAL CONTEXT — quote mark */
 /* ================================ */
 .historical-context {
@@ -1023,7 +1001,7 @@ body {
     overflow: hidden;
 }
 .historical-context::after {
-    content: "\\201D";
+    content: "”";
     position: absolute;
     right: 10px;
     top: -22px;
