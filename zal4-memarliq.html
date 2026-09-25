@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zal 04 — Memarlıq Abidələri | AzerHistory 3D</title>
+    <link rel="stylesheet" href="FLL.css" />
+    <link rel="stylesheet" href="auth.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        .hall-header { padding: 22px 8%; display: flex; align-items: center; justify-content: space-between; }
+        .hall-back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-dim); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.3s; }
+        .hall-back:hover { color: var(--accent); }
+        .hall-page-hero { text-align: center; padding: 20px 8% 60px; }
+        .hall-page-hero .hall-num { font-family: "Bebas Neue", sans-serif; font-size: 16px; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 14px; }
+        .hall-page-hero h1 { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: clamp(28px, 5vw, 46px); text-transform: uppercase; margin-bottom: 14px; }
+        .hall-page-hero h1 span { color: var(--accent); }
+        .hall-page-hero p { color: var(--text-dim); max-width: 560px; margin: 0 auto; font-size: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="stars"></div>
+<div class="particles"></div>
+
+<audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg" /></audio>
+<button id="musicBtn">🎵 Musiqi</button>
+
+<header class="hall-header">
+    <a href="lobby.html" class="hall-back"><i class="fas fa-arrow-left"></i> Lobiyə qayıt</a>
+    <div class="logo-text" style="font-family:'Space Grotesk',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;">
+        AzerHistory <span style="color:var(--accent);">3D</span>
+    </div>
+    <button class="auth-btn" id="authBtn">👤 Giriş</button>
+    <div class="user-badge" id="userBadge">
+        <div class="user-avatar" id="userAvatar">?</div>
+        <span class="user-email-label" id="userEmailLabel"></span>
+        <button class="logout-btn" id="logoutBtn" title="Çıxış">🚪</button>
+    </div>
+</header>
+
+<div class="hall-page-hero">
+    <div class="hall-num">ZAL 04 / 05</div>
+    <h1>Memarlıq <span>Abidələri</span></h1>
+    <p>Daşa, taxtaya və tuncə həkk olunmuş tarix — saraylar, türbələr, qalalar və məbədlər.</p>
+</div>
+
+<section id="monuments" style="padding-top:0;">
+
+<!-- Şirvanşahlar -->
+            <div class="model-showcase reveal">
+                <div class="viewer-part">
+                    <div class="empty-box">
+                        <img src="sirvan.webp"
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px\'><span style=\'font-size:64px\'>🏰</span><p style=\'color:#666;font-size:13px;font-family:Inter,sans-serif\'>Şirvanşahlar Sarayı</p></div>'"
+                             alt="Şirvanşahlar Sarayı" />
+                    </div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag">Orta Əsrlər</span>
+                    <h2>Şirvanşahlar Sarayı</h2>
+                    <div class="quick-facts">
+                        <span><strong>Dövr:</strong> XV əsr</span>
+                        <span><strong>Məkan:</strong> İçərişəhər, Bakı</span>
+                        <span><strong>Status:</strong> YUNESKO abidəsi</span>
+                    </div>
+                    <p class="long-desc">
+                        Şirvanşahlar sarayı Azərbaycan memarlığının incisidir. Kompleksdə saray, məscid, türbə və
+                        hamam yerləşir.
+                    </p>
+                    <div class="historical-context">
+                        <h4>Memarlıq İrsi</h4>
+                        <p>Kompleks 2000-ci ildə YUNESKO-nun Ümumdünya İrs siyahısına daxil edilib.</p>
+                    </div>
+
+                    <div class="comments-wrapper">
+                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comment-input-row">
+                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn">Göndər</button>
+                        </div>
+                        <div class="comments-list" data-comments-for="shirvan"></div>
+                    </div>
+                </div>
+            </div>
+
+<!-- Qız Qalası -->
+            <div class="model-showcase reveal featured">
+                <div class="featured-badge">★ Milli Rəmz</div>
+                <div class="viewer-part">
+                    <div class="empty-box"><img src="qiz_qalasi.jpg" alt="Qız Qalası" /></div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag">Memarlıq Abidəsi</span>
+                    <h2>Qız Qalası</h2>
+                    <div class="quick-facts">
+                        <span><strong>Dövr:</strong> XII əsr (alt qatlar daha qədim)</span>
+                        <span><strong>Məkan:</strong> İçərişəhər, Bakı</span>
+                        <span><strong>Status:</strong> YUNESKO Ümumdünya İrsi</span>
+                    </div>
+                    <p class="long-desc">
+                        Qız Qalası Azərbaycanın ən tanınan simvoludur — 8 mərtəbəli, silindrik formalı, 29 metr
+                        hündürlüyündə qala. Tikilmə tarixi və məqsədi haqqında hələ də mübahisələr davam edir:
+                        bəzi tədqiqatçılar onu müdafiə istehkamı, bəziləri isə zərdüştlük məbədi hesab edir.
+                        Qalanın adı ilə bağlı bir neçə əfsanə yaşayır — ən məşhuru, atası tərəfindən zorla
+                        evləndirilmək istənən şahzadə qızın qaladan Xəzərə atılması hekayəsidir.
+                    </p>
+                    <div class="historical-context">
+                        <h4>Memarlıq Siri</h4>
+                        <p>Qalanın divarlarındakı sirli çıxıntı və divar qalınlığının məqsədi bu günə qədər tam
+                        izah edilə bilməyib — bu da onu Şərqin ən müəmmalı abidələrindən birinə çevirir.</p>
+                    </div>
+
+                    <div class="comments-wrapper">
+                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comment-input-row">
+                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn">Göndər</button>
+                        </div>
+                        <div class="comments-list" data-comments-for="qizqalasi"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Şəki Xan Sarayı -->
+            <div class="model-showcase reverse reveal">
+                <div class="viewer-part">
+                    <div class="empty-box"><img src="sheki_xan_saray.jpg" alt="Şəki Xan Sarayı" /></div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag">Saray Memarlığı</span>
+                    <h2>Şəki Xan Sarayı</h2>
+                    <div class="quick-facts">
+                        <span><strong>Dövr:</strong> XVIII əsr</span>
+                        <span><strong>Məkan:</strong> Şəki şəhəri</span>
+                        <span><strong>Xüsusiyyət:</strong> Şəbəkə pəncərələri, divar rəsmləri</span>
+                    </div>
+                    <p class="long-desc">
+                        Şəki xanlarının yay iqamətgahı kimi tikilən bu saray, bir mismar belə istifadə edilmədən
+                        yığılıb — taxta hissələr yalnız oyma və keçidlərlə bir-birinə bağlanıb. Şəbəkə
+                        pəncərələri rəngli şüşə qırıqlarından düzəldilib, günəş işığı düşəndə otaq içi min bir
+                        rəngə boyanır. Divarlardakı freskalar ov səhnələri və çiçək naxışları ilə zəngindir.
+                    </p>
+                    <div class="historical-context">
+                        <h4>Sənətkarlıq Möcüzəsi</h4>
+                        <p>Bir şəbəkə pəncərəsi hazırlamaq üçün ustalar aylarla işləyirdi — bu texnika bu gün
+                        demək olar ki, unudulmaq üzrədir.</p>
+                    </div>
+
+                    <div class="comments-wrapper">
+                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comment-input-row">
+                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn">Göndər</button>
+                        </div>
+                        <div class="comments-list" data-comments-for="sheki"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Möminə Xatun Türbəsi -->
+            <div class="model-showcase reveal">
+                <div class="viewer-part">
+                    <div class="empty-box"><img src="momune_xatun.jpg" alt="Möminə Xatun Türbəsi" /></div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag">Türbə Memarlığı</span>
+                    <h2>Möminə Xatun Türbəsi</h2>
+                    <div class="quick-facts">
+                        <span><strong>Dövr:</strong> 1186-cı il</span>
+                        <span><strong>Memar:</strong> Əcəmi Naxçıvani</span>
+                        <span><strong>Məkan:</strong> Naxçıvan şəhəri</span>
+                    </div>
+                    <p class="long-desc">
+                        Naxçıvan memarlıq məktəbinin banisi Əcəmi Əbubəkr oğlu Naxçıvaninin ən möhtəşəm əsəri.
+                        On üzlü prizma formasında olan bu türbə, səthini örtən həndəsi və epiqrafik naxışlarla
+                        Şərq memarlığının zirvəsi hesab olunur. Atabəy Şəmsəddin Eldənizin arvadı Möminə Xatunun
+                        xatirəsinə tikilib.
+                    </p>
+                    <div class="historical-context">
+                        <h4>Naxçıvan Memarlıq Məktəbi</h4>
+                        <p>Əcəminin işlətdiyi həndəsi naxış üsulları sonrakı əsrlərdə bütün Yaxın Şərq
+                        memarlığına təsir göstərib.</p>
+                    </div>
+
+                    <div class="comments-wrapper">
+                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comment-input-row">
+                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn">Göndər</button>
+                        </div>
+                        <div class="comments-list" data-comments-for="momune"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Atəşgah Məbədi -->
+            <div class="model-showcase reverse reveal">
+                <div class="viewer-part">
+                    <div class="empty-box"><img src="ateskah_mebedi.jpg" alt="Atəşgah Məbədi" /></div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag">Zərdüştlük İbadətgahı</span>
+                    <h2>Atəşgah Məbədi</h2>
+                    <div class="quick-facts">
+                        <span><strong>Dövr:</strong> XVII–XVIII əsr</span>
+                        <span><strong>Məkan:</strong> Sürəxanı, Bakı</span>
+                        <span><strong>Banisi:</strong> Hind tacirləri</span>
+                    </div>
+                    <p class="long-desc">
+                        Yerin təkindən çıxan təbii qazın əsrlər boyu sönmədən yanması bu yeri müqəddəs
+                        ziyarətgaha çevirib. Beşbucaqlı qala divarları içərisindəki mərkəzi məbəd hind
+                        tacirləri tərəfindən tikilib və zərdüştlərin, hindusların, sikhlərin ortaq ibadət
+                        yeri olub. Divarlarda sanskrit və pəncabi dillərində yazılar qalır.
+                    </p>
+                    <div class="historical-context">
+                        <h4>Sönməyən Alov</h4>
+                        <p>XX əsrdə neft-qaz sənayesi inkişaf edəndə təbii qaz tükənib, indi "əbədi alov"
+                        süni qazla dəstəklənir.</p>
+                    </div>
+
+                    <div class="comments-wrapper">
+                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comment-input-row">
+                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn">Göndər</button>
+                        </div>
+                        <div class="comments-list" data-comments-for="ateshgah"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gəncə Qapıları -->
+            <div class="model-showcase reveal">
+                <div class="viewer-part">
+                    <div class="empty-box"><img src="gence_qapilari.jpg" alt="Gəncə Qapıları" /></div>
+                </div>
+                <div class="info-part">
+                    <span class="category-tag">Tunc Tökmə Sənəti</span>
+                    <h2>Gəncə Qapıları</h2>
+                    <div class="quick-facts">
+                        <span><strong>Hazırlanma:</strong> 1063-cü il</span>
+                        <span><strong>Material:</strong> Tunc</span>
+                        <span><strong>Hazırkı yer:</strong> Gelati monastırı, Gürcüstan</span>
+                    </div>
+                    <p class="long-desc">
+                        Gəncə şəhərinin darvazaları üçün tökülmüş bu möhtəşəm tunc qapılar orta əsr
+                        metaltökmə sənətinin nadir nümunəsidir. 1139-cu ildə güclü zəlzələdən sonra şəhər
+                        dağılanda, sonra isə 1804-cü ildə rus qoşunları Gəncəni işğal edərkən qapılar
+                        qənimət kimi aparılıb və bu gün Gürcüstandakı Gelati monastırında saxlanılır.
+                    </p>
+                    <div class="historical-context">
+                        <h4>Qaytarılmayan İrs</h4>
+                        <p>Qapılar üzərindəki ərəb yazıları onların Gəncədə hazırlandığını dəqiq təsdiqləyir —
+                        bu, itirilmiş mədəni irsin ən çarpıcı nümunələrindən biridir.</p>
+                    </div>
+
+                    <div class="comments-wrapper">
+                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comment-input-row">
+                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn">Göndər</button>
+                        </div>
+                        <div class="comments-list" data-comments-for="gencegapilari"></div>
+                    </div>
+                </div>
+            </div>
+
+</section>
+
+<div style="text-align:center; padding-bottom:80px;">
+    <a href="lobby.html" class="btn-main">← Lobiyə Qayıt</a>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">AzerHistory <span>3D</span></div>
+        <p>&copy; 2026 AzerHistory 3D</p>
+    </div>
+</footer>
+
+<div class="auth-modal-overlay" id="authModal">
+    <div class="auth-modal-box">
+        <button class="auth-modal-close" id="authModalClose">✕</button>
+        <h2 id="authTitle">Giriş Et</h2>
+        <p class="auth-modal-sub">AzerHistory 3D-yə xoş gəlmisiniz</p>
+        <form id="authForm">
+            <div class="auth-field">
+                <label>Email</label>
+                <input type="email" id="authEmail" required placeholder="sen@gmail.com" />
+            </div>
+            <div class="auth-field">
+                <label>Şifrə</label>
+                <input type="password" id="authPassword" required minlength="6" placeholder="••••••••" />
+            </div>
+            <p id="authError"></p>
+            <button type="submit" id="authSubmitBtn">Giriş Et</button>
+        </form>
+        <button id="authToggleMode">Hesabın yoxdur? Qeydiyyatdan keç</button>
+    </div>
+</div>
+
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="comments.js"></script>
+<script>
+    function checkReveal() {
+        document.querySelectorAll(".reveal").forEach((el) => {
+            if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add("active");
+        });
+    }
+    window.addEventListener("scroll", checkReveal);
+    window.addEventListener("load", checkReveal);
+
+    const music = document.getElementById("bgMusic");
+    const musicBtn = document.getElementById("musicBtn");
+    let playing = false;
+    musicBtn.addEventListener("click", () => {
+        if (!playing) {
+            music.play().then(() => { playing = true; musicBtn.innerHTML = "⏸ Pause"; }).catch(()=>{});
+        } else {
+            music.pause(); playing = false; musicBtn.innerHTML = "🎵 Musiqi";
+        }
+    });
+</script>
+</body>
+</html>
