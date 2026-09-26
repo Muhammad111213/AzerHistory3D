@@ -11,6 +11,9 @@
             rel="stylesheet" />
     </head>
     <body>
+        <audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg" /></audio>
+        <button id="musicBtn" style="position:fixed;bottom:28px;right:28px;z-index:999;background:rgba(212,140,26,0.1);border:1px solid var(--accent);color:var(--accent);padding:10px 20px;border-radius:50px;cursor:pointer;font-size:13px;font-family:'Inter',sans-serif;font-weight:600;backdrop-filter:blur(12px);">🎵 Musiqi</button>
+
         <div class="stars"></div>
         <div class="particles"></div>
 
@@ -239,5 +242,6 @@
         </footer>
 
         <script src="timeline.js"></script>
+        <script src="music.js"></script>
     </body>
 </html>

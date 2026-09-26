@@ -145,29 +145,8 @@ document.querySelectorAll("model-viewer").forEach((mv) => {
 });
 
 // =======================================
-// 8. MUSIC SYSTEM
+// 8. MUSIC SYSTEM — now handled by shared music.js
 // =======================================
-const music = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
-let playing = false;
-
-if (musicBtn && music) {
-    musicBtn.addEventListener("click", () => {
-        if (!playing) {
-            music
-                .play()
-                .then(() => {
-                    playing = true;
-                    musicBtn.innerHTML = "⏸ Pause";
-                })
-                .catch(() => console.warn("Musiqi oynatıla bilmədi."));
-        } else {
-            music.pause();
-            playing = false;
-            musicBtn.innerHTML = "🎵 Musiqi";
-        }
-    });
-}
 
 // =======================================
 // 9. LANGUAGE / i18n
