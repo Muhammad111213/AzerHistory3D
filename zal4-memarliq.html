@@ -12,7 +12,7 @@
         rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        .hall-header { padding: 22px 8%; display: flex; align-items: center; justify-content: space-between; }
+        .hall-header { position: static; padding: 22px 8%; display: flex; align-items: center; justify-content: space-between; }
         .hall-back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-dim); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.3s; }
         .hall-back:hover { color: var(--accent); }
         .hall-page-hero { text-align: center; padding: 20px 8% 60px; }
@@ -307,6 +307,7 @@
 <script src="supabase-config.js"></script>
 <script src="auth.js"></script>
 <script src="comments.js"></script>
+<script src="music.js"></script>
 <script>
     function checkReveal() {
         document.querySelectorAll(".reveal").forEach((el) => {
@@ -315,17 +316,6 @@
     }
     window.addEventListener("scroll", checkReveal);
     window.addEventListener("load", checkReveal);
-
-    const music = document.getElementById("bgMusic");
-    const musicBtn = document.getElementById("musicBtn");
-    let playing = false;
-    musicBtn.addEventListener("click", () => {
-        if (!playing) {
-            music.play().then(() => { playing = true; musicBtn.innerHTML = "⏸ Pause"; }).catch(()=>{});
-        } else {
-            music.pause(); playing = false; musicBtn.innerHTML = "🎵 Musiqi";
-        }
-    });
 </script>
 </body>
 </html>
