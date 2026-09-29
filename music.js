@@ -7,12 +7,15 @@
     if (!music || !musicBtn) return;
 
     const KEY = "azerhistory_music";
+    const _m = (k, fb) => (typeof tr === "function" ? tr(k, fb) : fb);
+
+    function label() {
+        return music.paused ? "🎵 " + _m("music", "Musiqi") : "⏸ " + _m("pause", "Pause");
+    }
+    function refreshLabel() { musicBtn.innerHTML = label(); }
 
     function save() {
-        localStorage.setItem(KEY, JSON.stringify({
-            playing: !music.paused,
-            time: music.currentTime,
-        }));
+        localStorage.setItem(KEY, JSON.stringify({ playing: !music.paused, time: music.currentTime }));
     }
 
     // Səhifə açılanda əvvəlki vəziyyəti bərpa et
@@ -21,28 +24,22 @@
         if (saved) {
             music.currentTime = saved.time || 0;
             if (saved.playing) {
-                music.play()
-                    .then(() => { musicBtn.innerHTML = "⏸ Pause"; })
-                    .catch(() => {});
+                music.play().then(refreshLabel).catch(() => {});
             }
         }
     } catch (e) {}
 
     musicBtn.addEventListener("click", () => {
         if (music.paused) {
-            music.play().then(() => {
-                musicBtn.innerHTML = "⏸ Pause";
-                save();
-            }).catch(() => {});
+            music.play().then(() => { refreshLabel(); save(); }).catch(() => {});
         } else {
             music.pause();
-            musicBtn.innerHTML = "🎵 Musiqi";
+            refreshLabel();
             save();
         }
     });
 
-    music.addEventListener("timeupdate", () => {
-        if (!music.paused) save();
-    });
+    music.addEventListener("timeupdate", () => { if (!music.paused) save(); });
     window.addEventListener("beforeunload", save);
+    window.addEventListener("langchange", refreshLabel);
 })();

@@ -88,11 +88,16 @@
 <button id="musicBtn">🎵 Musiqi</button>
 
 <header class="hall-header">
-    <a href="lobby.html" class="hall-back"><i class="fas fa-arrow-left"></i> Lobiyə qayıt</a>
+    <a href="lobby.html" class="hall-back"><i class="fas fa-arrow-left"></i> <span data-i18n="back_to_lobby">Lobiyə qayıt</span></a>
     <div class="logo-text" style="font-family:'Space Grotesk',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;">
         AzerHistory <span style="color:var(--accent);">3D</span>
     </div>
-    <button class="auth-btn" id="authBtn">👤 Giriş</button>
+    <div class="lang-switcher" style="display:flex;gap:4px;margin-right:14px;">
+        <button class="lang-btn active" data-lang="az">AZ</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+    </div>
+    <button class="auth-btn" id="authBtn">👤 <span data-i18n="auth_btn">Giriş</span></button>
     <div class="user-badge" id="userBadge">
         <div class="user-avatar" id="userAvatar">?</div>
         <span class="user-email-label" id="userEmailLabel"></span>
@@ -101,14 +106,14 @@
 </header>
 
 <div class="hall-page-hero">
-    <div class="hall-num">ZAL 01 / 05</div>
-    <h1>Paleontologiya <span>Zalı</span></h1>
-    <p>Bəşəriyyətin Azərbaycan torpağındakı ən qədim izləri — daşlaşmış sümüklərin danışdığı hekayə.</p>
+    <div class="hall-num"><span data-i18n="hall_word">ZAL</span> 01 / 05</div>
+    <h1><span data-i18n="hall1_page_title1">Paleontologiya</span> <span data-i18n="hall1_page_title2">Zalı</span></h1>
+    <p data-i18n="hall1_page_sub">Bəşəriyyətin Azərbaycan torpağındakı ən qədim izləri — daşlaşmış sümüklərin danışdığı hekayə.</p>
 </div>
 
 <section id="models" style="padding-top:0;">
     <div class="model-showcase reveal featured">
-        <div class="featured-badge">★ Zalın İncisi</div>
+        <div class="featured-badge" data-i18n="badge_gem">★ Zalın İncisi</div>
         <div class="viewer-part">
             <model-viewer
                 src="cene sumuyu.glb"
@@ -135,10 +140,10 @@
             </div>
 
             <div class="comments-wrapper">
-                <div class="comments-title">💬 Şərhlər</div>
+                <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                 <div class="comment-input-row">
-                    <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                    <button class="comment-send-btn">Göndər</button>
+                    <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                    <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                 </div>
                 <div class="comments-list" data-comments-for="cene"></div>
             </div>
@@ -168,10 +173,10 @@
                 məskunlaşdığını sübut edir.</p>
             </div>
             <div class="comments-wrapper">
-                <div class="comments-title">💬 Şərhlər</div>
+                <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                 <div class="comment-input-row">
-                    <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                    <button class="comment-send-btn">Göndər</button>
+                    <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                    <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                 </div>
                 <div class="comments-list" data-comments-for="taglar"></div>
             </div>
@@ -201,10 +206,10 @@
                 xəbər verir.</p>
             </div>
             <div class="comments-wrapper">
-                <div class="comments-title">💬 Şərhlər</div>
+                <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                 <div class="comment-input-row">
-                    <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                    <button class="comment-send-btn">Göndər</button>
+                    <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                    <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                 </div>
                 <div class="comments-list" data-comments-for="damcili"></div>
             </div>
@@ -234,10 +239,10 @@
                 əvəzsiz məlumat verir.</p>
             </div>
             <div class="comments-wrapper">
-                <div class="comments-title">💬 Şərhlər</div>
+                <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                 <div class="comment-input-row">
-                    <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                    <button class="comment-send-btn">Göndər</button>
+                    <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                    <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                 </div>
                 <div class="comments-list" data-comments-for="azixfauna"></div>
             </div>
@@ -247,13 +252,14 @@
 </section>
 
 <div style="text-align:center; padding-bottom:80px;">
-    <a href="lobby.html" class="btn-main">← Lobiyə Qayıt</a>
+    <a href="lobby.html" class="btn-main">← <span data-i18n="back_to_lobby">Lobiyə Qayıt</span></a>
 </div>
 
 <footer>
     <div class="footer-inner">
         <div class="footer-logo">AzerHistory <span>3D</span></div>
         <p>&copy; 2026 AzerHistory 3D</p>
+        <p style="font-size:11px;margin-top:4px;"><a href="lobby.html" data-i18n="back_to_lobby" style="color:var(--accent);text-decoration:none;">Lobiyə qayıt</a></p>
     </div>
 </footer>
 
@@ -261,14 +267,14 @@
     <div class="auth-modal-box">
         <button class="auth-modal-close" id="authModalClose">✕</button>
         <h2 id="authTitle">Giriş Et</h2>
-        <p class="auth-modal-sub">AzerHistory 3D-yə xoş gəlmisiniz</p>
+        <p class="auth-modal-sub" data-i18n="auth_sub">AzerHistory 3D-yə xoş gəlmisiniz</p>
         <form id="authForm">
             <div class="auth-field">
-                <label>Email</label>
+                <label data-i18n="auth_email">Email</label>
                 <input type="email" id="authEmail" required placeholder="sen@gmail.com" />
             </div>
             <div class="auth-field">
-                <label>Şifrə</label>
+                <label data-i18n="auth_password">Şifrə</label>
                 <input type="password" id="authPassword" required minlength="6" placeholder="••••••••" />
             </div>
             <p id="authError"></p>
@@ -282,6 +288,7 @@
 <script src="auth.js"></script>
 <script src="comments.js"></script>
 <script src="music.js"></script>
+<script src="lang.js"></script>
 <script>
     // Reveal animation (shared logic)
     function checkReveal() {

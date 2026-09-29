@@ -5,8 +5,11 @@
 // Hər eksponat kartına .comments-section div-i əlavə edəcəyik
 // data-artifact="sikke" kimi ID ilə işarələnir
 
+// Dil köməkçisi (lang.js-dən tr() varsa onu işlədir)
+const _c = (k, fb) => (typeof tr === "function" ? tr(k, fb) : fb);
+
 async function loadComments(artifactId, container) {
-    container.innerHTML = `<p class="comments-loading">Şərhlər yüklənir...</p>`;
+    container.innerHTML = `<p class="comments-loading" data-i18n="comments_loading">${_c("comments_loading", "Şərhlər yüklənir...")}</p>`;
 
     const { data, error } = await supabaseClient
         .from("comments")
@@ -15,12 +18,12 @@ async function loadComments(artifactId, container) {
         .order("created_at", { ascending: false });
 
     if (error) {
-        container.innerHTML = `<p class="comments-error">Şərhlər yüklənə bilmədi.</p>`;
+        container.innerHTML = `<p class="comments-error" data-i18n="comments_error">${_c("comments_error", "Şərhlər yüklənə bilmədi.")}</p>`;
         return;
     }
 
     if (!data || data.length === 0) {
-        container.innerHTML = `<p class="comments-empty">Hələ şərh yoxdur. İlk şərhi sən yaz!</p>`;
+        container.innerHTML = `<p class="comments-empty" data-i18n="comments_empty">${_c("comments_empty", "Hələ şərh yoxdur. İlk şərhi sən yaz!")}</p>`;
         return;
     }
 
@@ -31,7 +34,7 @@ async function loadComments(artifactId, container) {
             <div class="comment-avatar">${(c.user_email || "?")[0].toUpperCase()}</div>
             <div class="comment-body">
                 <div class="comment-header">
-                    <span class="comment-author">${escapeHtml((c.user_email || "İstifadəçi").split("@")[0])}</span>
+                    <span class="comment-author">${escapeHtml((c.user_email || _c("user_default", "İstifadəçi")).split("@")[0])}</span>
                     <span class="comment-date">${formatDate(c.created_at)}</span>
                 </div>
                 <p class="comment-text">${escapeHtml(c.content)}</p>
@@ -49,7 +52,7 @@ async function submitComment(artifactId, inputEl, container) {
 
     const user = await window.getCurrentUser();
     if (!user) {
-        alert("Şərh yazmaq üçün əvvəlcə giriş edin!");
+        alert(_c("comment_login_alert", "Şərh yazmaq üçün əvvəlcə giriş edin!"));
         document.getElementById("authBtn")?.click();
         return;
     }
@@ -62,7 +65,7 @@ async function submitComment(artifactId, inputEl, container) {
     });
 
     if (error) {
-        alert("Şərh göndərilə bilmədi: " + error.message);
+        alert(_c("comment_send_fail", "Şərh göndərilə bilmədi: ") + error.message);
         return;
     }
 
@@ -71,7 +74,7 @@ async function submitComment(artifactId, inputEl, container) {
 }
 
 async function deleteComment(commentId, artifactId) {
-    if (!confirm("Şərhi silmək istədiyinizə əminsiniz?")) return;
+    if (!confirm(_c("comment_confirm_delete", "Şərhi silmək istədiyinizə əminsiniz?"))) return;
     await supabaseClient.from("comments").delete().eq("id", commentId);
     const container = document.querySelector(`[data-comments-for="${artifactId}"]`);
     if (container) loadComments(artifactId, container);
@@ -86,7 +89,8 @@ function escapeHtml(str) {
 
 function formatDate(iso) {
     const d = new Date(iso);
-    return d.toLocaleDateString("az-AZ", { day: "2-digit", month: "short", year: "numeric" });
+    const loc = { az: "az-AZ", en: "en-GB", ru: "ru-RU" }[localStorage.getItem("azerhistory_lang") || "az"];
+    return d.toLocaleDateString(loc, { day: "2-digit", month: "short", year: "numeric" });
 }
 
 // ─── Bütün şərh bloklarını səhifə yüklənəndə işə sal ───

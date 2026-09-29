@@ -166,6 +166,11 @@
         }
         .hall-card.wide .hall-left { flex: 1; min-width: 240px; }
 
+        .lobby-lang { margin-left: auto; }
+        .lang-switcher { display: flex; gap: 4px; }
+        .lang-btn { background: transparent; border: 1px solid #3a3f34; color: #8f9688; padding: 3px 10px; border-radius: 3px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; font-family: "Inter", sans-serif; transition: all 0.3s; }
+        .lang-btn.active, .lang-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(212, 140, 26, 0.08); }
+
         footer {
             text-align: center;
             padding: 40px;
@@ -190,62 +195,68 @@
     <header>
         <img src="loqo.png" alt="Logo" class="site-logo" />
         <div class="logo-text">AzerHistory <span>3D</span></div>
+        <div class="lang-switcher lobby-lang">
+            <button class="lang-btn active" data-lang="az">AZ</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+        </div>
     </header>
 
     <section class="lobby-hero">
-        <div class="lobby-badge">🏛️ Rəqəmsal Muzey — Ana Lobi</div>
-        <h1>Xoş gəlmisiniz. <span>Hansı zaldan başlayaq?</span></h1>
-        <p>Hər zal ayrı bir dövrü, ayrı bir hekayəni gəzdirir. İstədiyin zaldan başla, istənilən vaxt bu lobiyə qayıt.</p>
+        <div class="lobby-badge" data-i18n="lobby_badge">🏛️ Rəqəmsal Muzey — Ana Lobi</div>
+        <h1><span data-i18n="lobby_h1_1" style="color:inherit">Xoş gəlmisiniz.</span> <span data-i18n="lobby_h1_2">Hansı zaldan başlayaq?</span></h1>
+        <p data-i18n="lobby_p">Hər zal ayrı bir dövrü, ayrı bir hekayəni gəzdirir. İstədiyin zaldan başla, istənilən vaxt bu lobiyə qayıt.</p>
     </section>
 
     <div class="halls-grid">
 
         <a href="zal1-paleontologiya.html" class="hall-card">
-            <div class="hall-num">ZAL 01</div>
+            <div class="hall-num"><span data-i18n="hall_word">ZAL</span> 01</div>
             <span class="hall-icon">🦴</span>
-            <h3>Paleontologiya</h3>
-            <p>İnsanlığın ilk izləri — 400,000 il əvvələ gedən yol.</p>
-            <span class="hall-count"><i class="fas fa-cube"></i> 1 eksponat</span>
+            <h3 data-i18n="hall1_title">Paleontologiya</h3>
+            <p data-i18n="hall1_desc">İnsanlığın ilk izləri — 400,000 il əvvələ gedən yol.</p>
+            <span class="hall-count"><i class="fas fa-cube"></i> 4 <span data-i18n="count_exhibit">eksponat</span></span>
         </a>
 
         <a href="zal2-numizmatika.html" class="hall-card">
-            <div class="hall-num">ZAL 02</div>
+            <div class="hall-num"><span data-i18n="hall_word">ZAL</span> 02</div>
             <span class="hall-icon">🪙</span>
-            <h3>Numizmatika &amp; 3D Arxiv</h3>
-            <p>Sikkələr, dulusçuluq — əlində tutub 360° döndərə biləcəyin əşyalar.</p>
-            <span class="hall-count"><i class="fas fa-cube"></i> 3 3D model</span>
+            <h3 data-i18n="hall2_title">Numizmatika &amp; 3D Arxiv</h3>
+            <p data-i18n="hall2_desc">Sikkələr, dulusçuluq — əlində tutub 360° döndərə biləcəyin əşyalar.</p>
+            <span class="hall-count"><i class="fas fa-cube"></i> 5 <span data-i18n="count_exhibit">eksponat</span></span>
         </a>
 
         <a href="zal3-arxeologiya.html" class="hall-card">
-            <div class="hall-num">ZAL 03</div>
+            <div class="hall-num"><span data-i18n="hall_word">ZAL</span> 03</div>
             <span class="hall-icon">⚔️</span>
-            <h3>Arxeoloji Tapıntılar</h3>
-            <p>Qızıl bəzəklər, silahlar, qaya rəsmləri — torpağın dərinliyindən çıxanlar.</p>
-            <span class="hall-count"><i class="fas fa-cube"></i> 9 tapıntı</span>
+            <h3 data-i18n="hall3_title">Arxeoloji Tapıntılar</h3>
+            <p data-i18n="hall3_desc">Qızıl bəzəklər, silahlar, qaya rəsmləri — torpağın dərinliyindən çıxanlar.</p>
+            <span class="hall-count"><i class="fas fa-cube"></i> 9 <span data-i18n="count_finds">tapıntı</span></span>
         </a>
 
         <a href="zal4-memarliq.html" class="hall-card">
-            <div class="hall-num">ZAL 04</div>
+            <div class="hall-num"><span data-i18n="hall_word">ZAL</span> 04</div>
             <span class="hall-icon">🏰</span>
-            <h3>Memarlıq Abidələri</h3>
-            <p>Qız Qalası, Şəki Sarayı, Atəşgah — daşa yazılmış tariximiz.</p>
-            <span class="hall-count"><i class="fas fa-cube"></i> 6 abidə</span>
+            <h3 data-i18n="hall4_title">Memarlıq Abidələri</h3>
+            <p data-i18n="hall4_desc">Qız Qalası, Şəki Sarayı, Atəşgah — daşa yazılmış tariximiz.</p>
+            <span class="hall-count"><i class="fas fa-cube"></i> 6 <span data-i18n="count_monuments">abidə</span></span>
         </a>
 
         <a href="timeline.html" class="hall-card">
-            <div class="hall-num">ZAL 05</div>
+            <div class="hall-num"><span data-i18n="hall_word">ZAL</span> 05</div>
             <span class="hall-icon">📅</span>
-            <h3>Zaman Xətti</h3>
-            <p>400,000 il əvvəldən bu günə — bir yol boyu bütün tarix.</p>
-            <span class="hall-count"><i class="fas fa-cube"></i> 15 hadisə</span>
+            <h3 data-i18n="hall5_title">Zaman Xətti</h3>
+            <p data-i18n="hall5_desc">400,000 il əvvəldən bu günə — bir yol boyu bütün tarix.</p>
+            <span class="hall-count"><i class="fas fa-cube"></i> 15 <span data-i18n="count_events">hadisə</span></span>
         </a>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 AzerHistory 3D | <a href="FLL.html">Bütün eksponatları tək səhifədə gör</a></p>
+        <p>&copy; 2026 AzerHistory 3D | <a href="FLL.html" data-i18n="footer_home">Ana Səhifəyə Qayıt</a></p>
     </footer>
 
 <script src="music.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

@@ -31,11 +31,16 @@
 <button id="musicBtn">🎵 Musiqi</button>
 
 <header class="hall-header">
-    <a href="lobby.html" class="hall-back"><i class="fas fa-arrow-left"></i> Lobiyə qayıt</a>
+    <a href="lobby.html" class="hall-back"><i class="fas fa-arrow-left"></i> <span data-i18n="back_to_lobby">Lobiyə qayıt</span></a>
     <div class="logo-text" style="font-family:'Space Grotesk',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;">
         AzerHistory <span style="color:var(--accent);">3D</span>
     </div>
-    <button class="auth-btn" id="authBtn">👤 Giriş</button>
+    <div class="lang-switcher" style="display:flex;gap:4px;margin-right:14px;">
+        <button class="lang-btn active" data-lang="az">AZ</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+    </div>
+    <button class="auth-btn" id="authBtn">👤 <span data-i18n="auth_btn">Giriş</span></button>
     <div class="user-badge" id="userBadge">
         <div class="user-avatar" id="userAvatar">?</div>
         <span class="user-email-label" id="userEmailLabel"></span>
@@ -44,9 +49,9 @@
 </header>
 
 <div class="hall-page-hero">
-    <div class="hall-num">ZAL 03 / 05</div>
-    <h1>Arxeoloji <span>Tapıntılar</span></h1>
-    <p>Torpağın dərinliyindən çıxan qızıl bəzəklər, silahlar və qaya rəsmləri — doqquz min illik səyahət.</p>
+    <div class="hall-num"><span data-i18n="hall_word">ZAL</span> 03 / 05</div>
+    <h1><span data-i18n="hall3_page_title1">Arxeoloji</span> <span data-i18n="hall3_page_title2">Tapıntılar</span></h1>
+    <p data-i18n="hall3_page_sub">Torpağın dərinliyindən çıxan qızıl bəzəklər, silahlar və qaya rəsmləri — doqquz min illik səyahət.</p>
 </div>
 
 <section id="artifacts" style="padding-top:0;">
@@ -74,10 +79,10 @@
                     </div>
 
                     <div class="comments-wrapper">
-                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                         <div class="comment-input-row">
-                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                            <button class="comment-send-btn">Göndər</button>
+                            <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                         </div>
                         <div class="comments-list" data-comments-for="at"></div>
                     </div>
@@ -106,10 +111,10 @@
                     </div>
 
                     <div class="comments-wrapper">
-                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                         <div class="comment-input-row">
-                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                            <button class="comment-send-btn">Göndər</button>
+                            <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                         </div>
                         <div class="comments-list" data-comments-for="bicak"></div>
                     </div>
@@ -118,7 +123,7 @@
 
 <!-- Manna -->
             <div class="model-showcase reveal featured">
-                <div class="featured-badge">★ Zalın İncisi</div>
+                <div class="featured-badge" data-i18n="badge_gem">★ Zalın İncisi</div>
                 <div class="viewer-part">
                     <div class="empty-box"><img src="manna.png" alt="Manna Qızıl Əşyaları" /></div>
                 </div>
@@ -140,10 +145,10 @@
                     </div>
 
                     <div class="comments-wrapper">
-                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                         <div class="comment-input-row">
-                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                            <button class="comment-send-btn">Göndər</button>
+                            <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                         </div>
                         <div class="comments-list" data-comments-for="manna"></div>
                     </div>
@@ -177,10 +182,10 @@
                     </div>
 
                     <div class="comments-wrapper">
-                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                         <div class="comment-input-row">
-                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                            <button class="comment-send-btn">Göndər</button>
+                            <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                         </div>
                         <div class="comments-list" data-comments-for="gamigaya"></div>
                     </div>
@@ -214,10 +219,10 @@
                     </div>
 
                     <div class="comments-wrapper">
-                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                         <div class="comment-input-row">
-                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                            <button class="comment-send-btn">Göndər</button>
+                            <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                         </div>
                         <div class="comments-list" data-comments-for="qobustan"></div>
                     </div>
@@ -251,10 +256,10 @@
                     </div>
 
                     <div class="comments-wrapper">
-                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                         <div class="comment-input-row">
-                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                            <button class="comment-send-btn">Göndər</button>
+                            <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                         </div>
                         <div class="comments-list" data-comments-for="xinisli"></div>
                     </div>
@@ -288,10 +293,10 @@
                     </div>
 
                     <div class="comments-wrapper">
-                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                         <div class="comment-input-row">
-                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                            <button class="comment-send-btn">Göndər</button>
+                            <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                         </div>
                         <div class="comments-list" data-comments-for="mingecevir"></div>
                     </div>
@@ -325,10 +330,10 @@
                     </div>
 
                     <div class="comments-wrapper">
-                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                         <div class="comment-input-row">
-                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                            <button class="comment-send-btn">Göndər</button>
+                            <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                         </div>
                         <div class="comments-list" data-comments-for="skif"></div>
                     </div>
@@ -362,10 +367,10 @@
                     </div>
 
                     <div class="comments-wrapper">
-                        <div class="comments-title">💬 Şərhlər</div>
+                        <div class="comments-title" data-i18n="comments_title">💬 Şərhlər</div>
                         <div class="comment-input-row">
-                            <input type="text" class="comment-input" placeholder="Fikrini yaz..." />
-                            <button class="comment-send-btn">Göndər</button>
+                            <input type="text" class="comment-input" data-i18n-placeholder="comment_placeholder" placeholder="Fikrini yaz..." />
+                            <button class="comment-send-btn" data-i18n="comment_send">Göndər</button>
                         </div>
                         <div class="comments-list" data-comments-for="qala"></div>
                     </div>
@@ -375,13 +380,14 @@
 </section>
 
 <div style="text-align:center; padding-bottom:80px;">
-    <a href="lobby.html" class="btn-main">← Lobiyə Qayıt</a>
+    <a href="lobby.html" class="btn-main">← <span data-i18n="back_to_lobby">Lobiyə Qayıt</span></a>
 </div>
 
 <footer>
     <div class="footer-inner">
         <div class="footer-logo">AzerHistory <span>3D</span></div>
         <p>&copy; 2026 AzerHistory 3D</p>
+        <p style="font-size:11px;margin-top:4px;"><a href="lobby.html" data-i18n="back_to_lobby" style="color:var(--accent);text-decoration:none;">Lobiyə qayıt</a></p>
     </div>
 </footer>
 
@@ -389,14 +395,14 @@
     <div class="auth-modal-box">
         <button class="auth-modal-close" id="authModalClose">✕</button>
         <h2 id="authTitle">Giriş Et</h2>
-        <p class="auth-modal-sub">AzerHistory 3D-yə xoş gəlmisiniz</p>
+        <p class="auth-modal-sub" data-i18n="auth_sub">AzerHistory 3D-yə xoş gəlmisiniz</p>
         <form id="authForm">
             <div class="auth-field">
-                <label>Email</label>
+                <label data-i18n="auth_email">Email</label>
                 <input type="email" id="authEmail" required placeholder="sen@gmail.com" />
             </div>
             <div class="auth-field">
-                <label>Şifrə</label>
+                <label data-i18n="auth_password">Şifrə</label>
                 <input type="password" id="authPassword" required minlength="6" placeholder="••••••••" />
             </div>
             <p id="authError"></p>
@@ -410,6 +416,7 @@
 <script src="auth.js"></script>
 <script src="comments.js"></script>
 <script src="music.js"></script>
+<script src="lang.js"></script>
 <script>
     function checkReveal() {
         document.querySelectorAll(".reveal").forEach((el) => {

@@ -38,7 +38,7 @@
             <nav class="navbar" id="navbar">
                 <a href="#home" data-i18n="nav_home">Ana Səhifə</a>
                 <a href="#about" data-i18n="nav_about">Haqqımızda</a>
-                <a href="lobby.html" class="hall-nav-lobby-link">🏛️ Muzey Lobisi</a>
+                <a href="lobby.html" class="hall-nav-lobby-link">🏛️ <span data-i18n="nav_lobby">Muzey Lobisi</span></a>
 
                 <div class="lang-switcher">
                     <button class="lang-btn active" data-lang="az">AZ</button>
@@ -57,7 +57,7 @@
                 </div>
 
                 <!-- AUTH -->
-                <button class="auth-btn" id="authBtn">👤 Giriş</button>
+                <button class="auth-btn" id="authBtn">👤 <span data-i18n="auth_btn">Giriş</span></button>
                 <div class="user-badge" id="userBadge">
                     <div class="user-avatar" id="userAvatar">?</div>
                     <span class="user-email-label" id="userEmailLabel"></span>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-num" data-target="18">0</span><span data-i18n="stat1">Eksponat</span>
+                        <span class="stat-num" data-target="24">0</span><span data-i18n="stat1">Eksponat</span>
                     </div>
                     <div class="stat">
                         <span class="stat-num" data-target="400000">0</span><span data-i18n="stat2">İl Tarix</span>
@@ -109,45 +109,45 @@
 
         <!-- ======================== ABOUT ======================== -->
         <section id="about">
-            <div class="eyebrow reveal">| HAQQIMIZDA</div>
-            <h2 class="section-title reveal">AzerHistory 3D Nədir?</h2>
+            <div class="eyebrow reveal" data-i18n="about_eyebrow">| HAQQIMIZDA</div>
+            <h2 class="section-title reveal" data-i18n="about_title">AzerHistory 3D Nədir?</h2>
 
             <div class="about-grid reveal">
                 <div class="about-text">
-                    <p>
+                    <p data-i18n="about_p1">
                         AzerHistory 3D — Azərbaycanın minillik tarixini rəqəmsal dünyaya daşıyan onlayn muzeydir.
                         Kitabdan oxumaq əvəzinə, hər bir artefaktı öz gözünlə görə, sikkələri və qədim əşyaları
                         360° döndərə, tarixi abidələri yaxından tanıya bilərsən.
                     </p>
-                    <p>
+                    <p data-i18n="about_p2">
                         Muzeyimiz beş ayrı zaldan ibarətdir — hər biri fərqli bir dövrü və fərqli bir hekayəni
                         gəzdirir: insanlığın ilk izlərindən tutmuş, qədim dövlətlərin qızıl sənətkarlığına,
                         daşa yazılmış memarlıq möcüzələrinə qədər. Zaman Xətti isə səni 400,000 il əvvəldən bu günə
                         qədər aparan bir yolçuluğa çıxarır.
                     </p>
-                    <p>
+                    <p data-i18n="about_p3">
                         Qeydiyyatdan keçib hər eksponata öz fikrini yaza, başqalarının rəylərini oxuya bilərsən.
                         Məqsədimiz sadədir: keçmişi bugünün dili ilə danışdırmaq.
                     </p>
-                    <a href="lobby.html" class="btn-main" style="margin-top: 10px;">Muzeyi Gəz</a>
+                    <a href="lobby.html" class="btn-main" style="margin-top: 10px;" data-i18n="about_btn">Muzeyi Gəz</a>
                 </div>
 
                 <div class="about-stats">
                     <div class="about-stat-card">
                         <span class="stat-num" data-target="5">0</span>
-                        <span>Muzey Zalı</span>
+                        <span data-i18n="about_stat1">Muzey Zalı</span>
                     </div>
                     <div class="about-stat-card">
-                        <span class="stat-num" data-target="18">0</span>
-                        <span>Eksponat</span>
+                        <span class="stat-num" data-target="24">0</span>
+                        <span data-i18n="about_stat2">Eksponat</span>
                     </div>
                     <div class="about-stat-card">
                         <span class="stat-num" data-target="400000">0</span>
-                        <span>İl Tarix</span>
+                        <span data-i18n="about_stat3">İl Tarix</span>
                     </div>
                     <div class="about-stat-card">
                         <span class="stat-num" data-target="3">0</span>
-                        <span>3D Model</span>
+                        <span data-i18n="about_stat4">3D Model</span>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@
         <footer>
             <div class="footer-inner">
                 <div class="footer-logo">AzerHistory <span>3D</span></div>
-                <p>&copy; 2026 AzerHistory 3D | Məhəmməd Hüseynov tərəfindən yaradılıb</p>
+                <p>&copy; 2026 AzerHistory 3D | <span data-i18n="footer_credit">Məhəmməd Hüseynov tərəfindən yaradılıb</span></p>
                 <div class="footer-links">
                     <a href="https://www.instagram.com/azer_history2026/" target="_blank"
                         ><i class="fab fa-instagram"></i
@@ -175,14 +175,14 @@
             <div class="auth-modal-box">
                 <button class="auth-modal-close" id="authModalClose">✕</button>
                 <h2 id="authTitle">Giriş Et</h2>
-                <p class="auth-modal-sub">AzerHistory 3D-yə xoş gəlmisiniz</p>
+                <p class="auth-modal-sub" data-i18n="auth_sub">AzerHistory 3D-yə xoş gəlmisiniz</p>
                 <form id="authForm">
                     <div class="auth-field">
-                        <label>Email</label>
+                        <label data-i18n="auth_email">Email</label>
                         <input type="email" id="authEmail" required placeholder="sen@gmail.com" />
                     </div>
                     <div class="auth-field">
-                        <label>Şifrə</label>
+                        <label data-i18n="auth_password">Şifrə</label>
                         <input type="password" id="authPassword" required minlength="6" placeholder="••••••••" />
                     </div>
                     <p id="authError"></p>
@@ -196,6 +196,7 @@
         <script src="auth.js"></script>
         <script src="comments.js"></script>
         <script src="music.js"></script>
+        <script src="lang.js"></script>
         <script src="FLL.js"></script>
     </body>
 </html>

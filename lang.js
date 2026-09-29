@@ -1,0 +1,343 @@
+/* ================================================ */
+/*  lang.js — AzerHistory 3D  Ortaq dil sistemi     */
+/*  (nav, footer, hero, about, lobi, zal başlıqları) */
+/* ================================================ */
+
+const T = {
+    az: {
+        // ---- NAVBAR / ÜMUMI ----
+        nav_home: "Ana Səhifə",
+        nav_about: "Haqqımızda",
+        nav_lobby: "Muzey Lobisi",
+        nav_timeline: "Zaman Xətti",
+        back_to_lobby: "Lobiyə qayıt",
+        music: "Musiqi",
+
+        // ---- AUTH MODAL ----
+        auth_login_title: "Giriş Et",
+        auth_signup_title: "Qeydiyyatdan Keç",
+        auth_sub: "AzerHistory 3D-yə xoş gəlmisiniz",
+        auth_email: "Email",
+        auth_password: "Şifrə",
+        auth_login_btn: "Giriş Et",
+        auth_signup_btn: "Qeydiyyatdan Keç",
+        auth_toggle_to_signup: "Hesabın yoxdur? Qeydiyyatdan keç",
+        auth_toggle_to_login: "Artıq hesabın var? Giriş et",
+
+        // ---- ANA SƏHİFƏ (FLL.html) HERO ----
+        hero_badge: "🏛️ Rəqəmsal Muzey",
+        hero_title1: "Milli İrsin",
+        hero_title2: "Rəqəmsal Arxivi",
+        hero_sub: "Minilliklərin mirasını müasir texnologiya ilə kəşf edin. Hər bir artefakt xalqımızın keçmişinə açılan bir pəncərədir.",
+        hero_btn: "Muzeyə Gir",
+        hero_btn2: "Zaman Xətti",
+        stat1: "Eksponat",
+        stat2: "İl Tarix",
+        stat3: "3D Model",
+        scroll: "Aşağı sürüşdür",
+
+        // ---- HAQQIMIZDA (about) ----
+        about_eyebrow: "| HAQQIMIZDA",
+        about_title: "AzerHistory 3D Nədir?",
+        about_p1: "AzerHistory 3D — Azərbaycanın minillik tarixini rəqəmsal dünyaya daşıyan onlayn muzeydir. Kitabdan oxumaq əvəzinə, hər bir artefaktı öz gözünlə görə, sikkələri və qədim əşyaları 360° döndərə, tarixi abidələri yaxından tanıya bilərsən.",
+        about_p2: "Muzeyimiz beş ayrı zaldan ibarətdir — hər biri fərqli bir dövrü və fərqli bir hekayəni gəzdirir: insanlığın ilk izlərindən tutmuş, qədim dövlətlərin qızıl sənətkarlığına, daşa yazılmış memarlıq möcüzələrinə qədər. Zaman Xətti isə səni 400,000 il əvvəldən bu günə qədər aparan bir yolçuluğa çıxarır.",
+        about_p3: "Qeydiyyatdan keçib hər eksponata öz fikrini yaza, başqalarının rəylərini oxuya bilərsən. Məqsədimiz sadədir: keçmişi bugünün dili ilə danışdırmaq.",
+        about_btn: "Muzeyi Gəz",
+        about_stat1: "Muzey Zalı",
+        about_stat2: "Eksponat",
+        about_stat3: "İl Tarix",
+        about_stat4: "3D Model",
+
+        // ---- LOBİ ----
+        lobby_badge: "🏛️ Rəqəmsal Muzey — Ana Lobi",
+        lobby_h1_1: "Xoş gəlmisiniz.",
+        lobby_h1_2: "Hansı zaldan başlayaq?",
+        lobby_p: "Hər zal ayrı bir dövrü, ayrı bir hekayəni gəzdirir. İstədiyin zaldan başla, istənilən vaxt bu lobiyə qayıt.",
+        hall1_title: "Paleontologiya",
+        hall1_desc: "İnsanlığın ilk izləri — 400,000 il əvvələ gedən yol.",
+        hall2_title: "Numizmatika & 3D Arxiv",
+        hall2_desc: "Sikkələr, dulusçuluq — əlində tutub 360° döndərə biləcəyin əşyalar.",
+        hall3_title: "Arxeoloji Tapıntılar",
+        hall3_desc: "Qızıl bəzəklər, silahlar, qaya rəsmləri — torpağın dərinliyindən çıxanlar.",
+        hall4_title: "Memarlıq Abidələri",
+        hall4_desc: "Qız Qalası, Şəki Sarayı, Atəşgah — daşa yazılmış tariximiz.",
+        hall5_title: "Zaman Xətti",
+        hall5_desc: "400,000 il əvvəldən bu günə — bir yol boyu bütün tarix.",
+        eksponat_word: "eksponat",
+
+        // ---- ZAL SƏHİFƏ BAŞLIQLARI ----
+        hall1_page_title1: "Paleontologiya",
+        hall1_page_title2: "Zalı",
+        hall1_page_sub: "Bəşəriyyətin Azərbaycan torpağındakı ən qədim izləri — daşlaşmış sümüklərin danışdığı hekayə.",
+        hall2_page_title1: "Numizmatika",
+        hall2_page_title2: "& 3D Arxiv",
+        hall2_page_sub: "Əlində tutub 360° döndərə biləcəyin əşyalar — sikkələr və qablar, minilliklər öncədən qalma.",
+        hall3_page_title1: "Arxeoloji",
+        hall3_page_title2: "Tapıntılar",
+        hall3_page_sub: "Torpağın dərinliyindən çıxan qızıl bəzəklər, silahlar və qaya rəsmləri — doqquz min illik səyahət.",
+        hall4_page_title1: "Memarlıq",
+        hall4_page_title2: "Abidələri",
+        hall4_page_sub: "Daşa, taxtaya və tuncə həkk olunmuş tarix — saraylar, türbələr, qalalar və məbədlər.",
+
+        // ---- FOOTER ----
+        footer_copy: "© 2026 AzerHistory 3D",
+        footer_credit: "Məhəmməd Hüseynov tərəfindən yaradılıb",
+        footer_home: "Ana Səhifəyə Qayıt",
+        hall_word: "ZAL",
+        pause: "Dayandır",
+        auth_btn: "Giriş",
+        auth_wait: "Gözləyin...",
+        auth_signup_ok: "✅ Qeydiyyat uğurludur! Emailinizi yoxlayın və linkə klik edin.",
+        err_invalid: "❌ Email və ya şifrə yanlışdır",
+        err_unconfirmed: "❌ Zəhmət olmasa emailinizi təsdiqləyin",
+        err_exists: "❌ Bu email artıq qeydiyyatdan keçib",
+        err_password: "❌ Şifrə ən azı 6 simvol olmalıdır",
+        badge_gem: "★ Zalın İncisi",
+        badge_flagship: "★ Flaqman Eksponat",
+        badge_symbol: "★ Milli Rəmz",
+        count_exhibit: "eksponat",
+        count_finds: "tapıntı",
+        count_monuments: "abidə",
+        count_events: "hadisə",
+        comments_title: "Şərhlər",
+        comment_placeholder: "Fikrini yaz...",
+        comment_send: "Göndər",
+        comments_loading: "Şərhlər yüklənir...",
+        comments_empty: "Hələ şərh yoxdur. İlk şərhi sən yaz!",
+        comments_error: "Şərhlər yüklənə bilmədi.",
+        comment_login_alert: "Şərh yazmaq üçün əvvəlcə giriş edin!",
+        comment_confirm_delete: "Şərhi silmək istədiyinizə əminsiniz?",
+        comment_send_fail: "Şərh göndərilə bilmədi: ",
+        user_default: "İstifadəçi",
+    },
+    en: {
+        nav_home: "Home",
+        nav_about: "About",
+        nav_lobby: "Museum Lobby",
+        nav_timeline: "Timeline",
+        back_to_lobby: "Back to lobby",
+        music: "Music",
+
+        auth_login_title: "Log In",
+        auth_signup_title: "Sign Up",
+        auth_sub: "Welcome to AzerHistory 3D",
+        auth_email: "Email",
+        auth_password: "Password",
+        auth_login_btn: "Log In",
+        auth_signup_btn: "Sign Up",
+        auth_toggle_to_signup: "No account? Sign up",
+        auth_toggle_to_login: "Already have an account? Log in",
+
+        hero_badge: "🏛️ Digital Museum",
+        hero_title1: "National Heritage",
+        hero_title2: "Digital Archive",
+        hero_sub: "Discover millennia of heritage through modern technology. Every artifact is a window into our people's past.",
+        hero_btn: "Enter the Museum",
+        hero_btn2: "Timeline",
+        stat1: "Exhibits",
+        stat2: "Years of History",
+        stat3: "3D Models",
+        scroll: "Scroll down",
+
+        about_eyebrow: "| ABOUT",
+        about_title: "What is AzerHistory 3D?",
+        about_p1: "AzerHistory 3D is an online museum bringing Azerbaijan's millennia-old history into the digital world. Instead of reading from a book, you can see every artifact with your own eyes, rotate coins and ancient objects in 360°, and get up close to historic monuments.",
+        about_p2: "Our museum has five separate halls — each carrying a different era and a different story: from humanity's earliest traces, to the gold craftsmanship of ancient states, to architectural wonders carved in stone. The Timeline takes you on a journey from 400,000 years ago to today.",
+        about_p3: "Sign up to write your own thoughts on each exhibit and read others' comments. Our goal is simple: to let the past speak in today's language.",
+        about_btn: "Explore the Museum",
+        about_stat1: "Museum Halls",
+        about_stat2: "Exhibits",
+        about_stat3: "Years of History",
+        about_stat4: "3D Models",
+
+        lobby_badge: "🏛️ Digital Museum — Main Lobby",
+        lobby_h1_1: "Welcome.",
+        lobby_h1_2: "Which hall shall we start with?",
+        lobby_p: "Each hall carries a different era, a different story. Start with any hall, and return to this lobby anytime.",
+        hall1_title: "Paleontology",
+        hall1_desc: "Humanity's first traces — a road stretching back 400,000 years.",
+        hall2_title: "Numismatics & 3D Archive",
+        hall2_desc: "Coins, pottery — objects you can hold and rotate 360° in your hand.",
+        hall3_title: "Archaeological Finds",
+        hall3_desc: "Gold ornaments, weapons, rock art — things risen from the depths of the earth.",
+        hall4_title: "Architectural Monuments",
+        hall4_desc: "Maiden Tower, Sheki Palace, Ateshgah — our history carved in stone.",
+        hall5_title: "Timeline",
+        hall5_desc: "From 400,000 years ago to today — the whole of history along one path.",
+        eksponat_word: "exhibits",
+
+        hall1_page_title1: "Paleontology",
+        hall1_page_title2: "Hall",
+        hall1_page_sub: "Humanity's oldest traces on Azerbaijani soil — the story fossilized bones tell.",
+        hall2_page_title1: "Numismatics",
+        hall2_page_title2: "& 3D Archive",
+        hall2_page_sub: "Objects you can hold and rotate 360° in your hand — coins and vessels from millennia ago.",
+        hall3_page_title1: "Archaeological",
+        hall3_page_title2: "Finds",
+        hall3_page_sub: "Gold ornaments, weapons and rock art risen from the depths of the earth — a nine-thousand-year journey.",
+        hall4_page_title1: "Architectural",
+        hall4_page_title2: "Monuments",
+        hall4_page_sub: "History carved into stone, wood and bronze — palaces, mausoleums, fortresses and temples.",
+
+        footer_copy: "© 2026 AzerHistory 3D",
+        footer_credit: "Created by Mahammad Huseynov",
+        footer_home: "Back to Home",
+        hall_word: "HALL",
+        pause: "Pause",
+        auth_btn: "Log in",
+        auth_wait: "Please wait...",
+        auth_signup_ok: "✅ Signed up! Check your email and click the link.",
+        err_invalid: "❌ Incorrect email or password",
+        err_unconfirmed: "❌ Please confirm your email first",
+        err_exists: "❌ This email is already registered",
+        err_password: "❌ Password must be at least 6 characters",
+        badge_gem: "★ Hall Highlight",
+        badge_flagship: "★ Flagship Exhibit",
+        badge_symbol: "★ National Symbol",
+        count_exhibit: "exhibits",
+        count_finds: "finds",
+        count_monuments: "monuments",
+        count_events: "events",
+        comments_title: "Comments",
+        comment_placeholder: "Write your thoughts...",
+        comment_send: "Send",
+        comments_loading: "Loading comments...",
+        comments_empty: "No comments yet. Be the first to write one!",
+        comments_error: "Could not load comments.",
+        comment_login_alert: "Please log in first to write a comment!",
+        comment_confirm_delete: "Are you sure you want to delete this comment?",
+        comment_send_fail: "Could not send comment: ",
+        user_default: "User",
+    },
+    ru: {
+        nav_home: "Главная",
+        nav_about: "О нас",
+        nav_lobby: "Лобби музея",
+        nav_timeline: "Хронология",
+        back_to_lobby: "Назад в лобби",
+        music: "Музыка",
+
+        auth_login_title: "Войти",
+        auth_signup_title: "Регистрация",
+        auth_sub: "Добро пожаловать в AzerHistory 3D",
+        auth_email: "Email",
+        auth_password: "Пароль",
+        auth_login_btn: "Войти",
+        auth_signup_btn: "Зарегистрироваться",
+        auth_toggle_to_signup: "Нет аккаунта? Зарегистрируйтесь",
+        auth_toggle_to_login: "Уже есть аккаунт? Войти",
+
+        hero_badge: "🏛️ Цифровой Музей",
+        hero_title1: "Цифровой Архив",
+        hero_title2: "Национального Наследия",
+        hero_sub: "Откройте для себя тысячелетнее наследие с помощью современных технологий. Каждый артефакт — окно в прошлое нашего народа.",
+        hero_btn: "Войти в Музей",
+        hero_btn2: "Хронология",
+        stat1: "Экспонатов",
+        stat2: "Лет Истории",
+        stat3: "3D Модели",
+        scroll: "Прокрутите вниз",
+
+        about_eyebrow: "| О НАС",
+        about_title: "Что такое AzerHistory 3D?",
+        about_p1: "AzerHistory 3D — это онлайн-музей, переносящий тысячелетнюю историю Азербайджана в цифровой мир. Вместо чтения книги вы можете увидеть каждый артефакт своими глазами, вращать монеты и древние предметы на 360°, детально рассмотреть исторические памятники.",
+        about_p2: "Наш музей состоит из пяти отдельных залов — каждый несёт свою эпоху и свою историю: от первых следов человечества до золотого мастерства древних государств и архитектурных чудес, высеченных в камне. Хронология проведёт вас через путь от 400 000 лет назад до наших дней.",
+        about_p3: "Зарегистрируйтесь, чтобы оставлять свои мысли к каждому экспонату и читать комментарии других. Наша цель проста: заставить прошлое говорить на языке сегодняшнего дня.",
+        about_btn: "Исследовать Музей",
+        about_stat1: "Залов Музея",
+        about_stat2: "Экспонатов",
+        about_stat3: "Лет Истории",
+        about_stat4: "3D Модели",
+
+        lobby_badge: "🏛️ Цифровой Музей — Главное Лобби",
+        lobby_h1_1: "Добро пожаловать.",
+        lobby_h1_2: "С какого зала начнём?",
+        lobby_p: "Каждый зал несёт свою эпоху, свою историю. Начните с любого зала и возвращайтесь в это лобби в любое время.",
+        hall1_title: "Палеонтология",
+        hall1_desc: "Первые следы человечества — путь длиной в 400 000 лет.",
+        hall2_title: "Нумизматика и 3D Архив",
+        hall2_desc: "Монеты, керамика — предметы, которые можно держать в руках и вращать на 360°.",
+        hall3_title: "Археологические Находки",
+        hall3_desc: "Золотые украшения, оружие, наскальные рисунки — поднятое из глубин земли.",
+        hall4_title: "Архитектурные Памятники",
+        hall4_desc: "Девичья башня, дворец в Шеки, Атешгях — наша история, высеченная в камне.",
+        hall5_title: "Хронология",
+        hall5_desc: "От 400 000 лет назад до наших дней — вся история на одном пути.",
+        eksponat_word: "экспонатов",
+
+        hall1_page_title1: "Зал",
+        hall1_page_title2: "Палеонтологии",
+        hall1_page_sub: "Древнейшие следы человечества на земле Азербайджана — история окаменевших костей.",
+        hall2_page_title1: "Нумизматика",
+        hall2_page_title2: "и 3D Архив",
+        hall2_page_sub: "Предметы, которые можно держать в руках и вращать на 360° — монеты и сосуды тысячелетней давности.",
+        hall3_page_title1: "Археологические",
+        hall3_page_title2: "Находки",
+        hall3_page_sub: "Золотые украшения, оружие и наскальные рисунки, поднятые из глубин земли — путешествие длиной в девять тысяч лет.",
+        hall4_page_title1: "Архитектурные",
+        hall4_page_title2: "Памятники",
+        hall4_page_sub: "История, высеченная в камне, дереве и бронзе — дворцы, мавзолеи, крепости и храмы.",
+
+        footer_copy: "© 2026 AzerHistory 3D",
+        footer_credit: "Создано Мамедом Гусейновым",
+        footer_home: "На главную",
+        hall_word: "ЗАЛ",
+        pause: "Пауза",
+        auth_btn: "Войти",
+        auth_wait: "Подождите...",
+        auth_signup_ok: "✅ Регистрация прошла успешно! Проверьте почту и перейдите по ссылке.",
+        err_invalid: "❌ Неверный email или пароль",
+        err_unconfirmed: "❌ Пожалуйста, подтвердите ваш email",
+        err_exists: "❌ Этот email уже зарегистрирован",
+        err_password: "❌ Пароль должен содержать минимум 6 символов",
+        badge_gem: "★ Жемчужина Зала",
+        badge_flagship: "★ Флагманский Экспонат",
+        badge_symbol: "★ Национальный Символ",
+        count_exhibit: "экспонатов",
+        count_finds: "находок",
+        count_monuments: "памятников",
+        count_events: "событий",
+        comments_title: "Комментарии",
+        comment_placeholder: "Напишите своё мнение...",
+        comment_send: "Отправить",
+        comments_loading: "Загрузка комментариев...",
+        comments_empty: "Комментариев пока нет. Напишите первый!",
+        comments_error: "Не удалось загрузить комментарии.",
+        comment_login_alert: "Сначала войдите, чтобы написать комментарий!",
+        comment_confirm_delete: "Вы уверены, что хотите удалить комментарий?",
+        comment_send_fail: "Не удалось отправить комментарий: ",
+        user_default: "Пользователь",
+    },
+};
+
+function tr(key, fallback) {
+    const lang = localStorage.getItem("azerhistory_lang") || "az";
+    return (T[lang] && T[lang][key]) || (T.az && T.az[key]) || fallback || key;
+}
+
+function applySiteLang(lang) {
+    const t = T[lang];
+    if (!t) return;
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.textContent = t[key];
+    });
+    // Şərh bloku (bütün eksponatlarda təkrarlanır)
+    document.querySelectorAll(".comments-title").forEach((el) => (el.textContent = "💬 " + t.comments_title));
+    document.querySelectorAll(".comment-input").forEach((el) => (el.placeholder = t.comment_placeholder));
+    document.querySelectorAll(".comment-send-btn").forEach((el) => (el.textContent = t.comment_send));
+
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
+    localStorage.setItem("azerhistory_lang", lang);
+    window.dispatchEvent(new CustomEvent("langchange", { detail: lang }));
+}
+
+document.querySelectorAll(".lang-btn").forEach((btn) => {
+    btn.addEventListener("click", () => applySiteLang(btn.dataset.lang));
+});
+
+applySiteLang(localStorage.getItem("azerhistory_lang") || "az");

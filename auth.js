@@ -1,6 +1,9 @@
 // ================================================
 //  auth.js — AzerHistory 3D Qeydiyyat / Giriş sistemi
+//  (3 dilli — lang.js-dəki tr() funksiyasından istifadə edir)
 // ================================================
+
+const _t = (k, fb) => (typeof tr === "function" ? tr(k, fb) : fb);
 
 // ─── DOM elementləri ──────────────────────────
 const authBtn        = document.getElementById("authBtn");
@@ -15,9 +18,24 @@ const authError       = document.getElementById("authError");
 const authTitle       = document.getElementById("authTitle");
 const userBadge       = document.getElementById("userBadge");
 const userEmailLabel  = document.getElementById("userEmailLabel");
+const userAvatar      = document.getElementById("userAvatar");
 const logoutBtn       = document.getElementById("logoutBtn");
 
 let isLoginMode = true; // true = giriş, false = qeydiyyat
+
+// ─── Modal mətnlərini rejimə və dilə görə yenilə ──
+function refreshAuthTexts() {
+    if (authTitle) authTitle.textContent = isLoginMode ? _t("auth_login_title", "Giriş Et") : _t("auth_signup_title", "Qeydiyyatdan Keç");
+    if (authSubmitBtn && !authSubmitBtn.disabled) {
+        authSubmitBtn.textContent = isLoginMode ? _t("auth_login_btn", "Giriş Et") : _t("auth_signup_btn", "Qeydiyyatdan Keç");
+    }
+    if (authToggleMode) {
+        authToggleMode.textContent = isLoginMode
+            ? _t("auth_toggle_to_signup", "Hesabın yoxdur? Qeydiyyatdan keç")
+            : _t("auth_toggle_to_login", "Artıq hesabın var? Giriş et");
+    }
+}
+window.addEventListener("langchange", refreshAuthTexts);
 
 // ─── Modalı aç/bağla ──────────────────────────
 function openAuthModal() {
@@ -29,7 +47,7 @@ function closeAuthModal() {
     authModal.classList.remove("open");
 }
 
-if (authBtn)       authBtn.addEventListener("click", openAuthModal);
+if (authBtn)        authBtn.addEventListener("click", openAuthModal);
 if (authModalClose) authModalClose.addEventListener("click", closeAuthModal);
 if (authModal) {
     authModal.addEventListener("click", (e) => {
@@ -42,15 +60,7 @@ if (authToggleMode) {
     authToggleMode.addEventListener("click", () => {
         isLoginMode = !isLoginMode;
         authError.textContent = "";
-        if (isLoginMode) {
-            authTitle.textContent = "Giriş Et";
-            authSubmitBtn.textContent = "Giriş Et";
-            authToggleMode.textContent = "Hesabın yoxdur? Qeydiyyatdan keç";
-        } else {
-            authTitle.textContent = "Qeydiyyatdan Keç";
-            authSubmitBtn.textContent = "Qeydiyyatdan Keç";
-            authToggleMode.textContent = "Artıq hesabın var? Giriş et";
-        }
+        refreshAuthTexts();
     });
 }
 
@@ -60,30 +70,24 @@ if (authForm) {
         e.preventDefault();
         authError.textContent = "";
         authSubmitBtn.disabled = true;
-        authSubmitBtn.textContent = "Gözləyin...";
+        authSubmitBtn.textContent = _t("auth_wait", "Gözləyin...");
 
         const email = authEmail.value.trim();
         const password = authPassword.value;
 
         try {
             if (isLoginMode) {
-                // GİRİŞ
-                const { data, error } = await supabaseClient.auth.signInWithPassword({
-                    email, password,
-                });
+                const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
                 if (error) throw error;
                 closeAuthModal();
                 updateAuthUI(data.user);
             } else {
-                // QEYDİYYAT
-                const { data, error } = await supabaseClient.auth.signUp({
-                    email, password,
-                });
+                const { data, error } = await supabaseClient.auth.signUp({ email, password });
                 if (error) throw error;
                 authError.style.color = "#4ADE80";
-                authError.textContent = "✅ Qeydiyyat uğurludur! Emailinizi yoxlayın və linkə klik edin.";
+                authError.textContent = _t("auth_signup_ok", "✅ Qeydiyyat uğurludur! Emailinizi yoxlayın və linkə klik edin.");
                 authSubmitBtn.disabled = false;
-                authSubmitBtn.textContent = isLoginMode ? "Giriş Et" : "Qeydiyyatdan Keç";
+                refreshAuthTexts();
                 return;
             }
         } catch (err) {
@@ -92,16 +96,16 @@ if (authForm) {
         }
 
         authSubmitBtn.disabled = false;
-        authSubmitBtn.textContent = isLoginMode ? "Giriş Et" : "Qeydiyyatdan Keç";
+        refreshAuthTexts();
     });
 }
 
-// ─── Xəta mesajlarını Azərbaycan dilinə çevir ─
+// ─── Xəta mesajlarını seçilmiş dilə çevir ─────
 function translateAuthError(msg) {
-    if (msg.includes("Invalid login credentials")) return "❌ Email və ya şifrə yanlışdır";
-    if (msg.includes("Email not confirmed"))        return "❌ Zəhmət olmasa emailinizi təsdiqləyin";
-    if (msg.includes("User already registered"))    return "❌ Bu email artıq qeydiyyatdan keçib";
-    if (msg.includes("Password should be"))         return "❌ Şifrə ən azı 6 simvol olmalıdır";
+    if (msg.includes("Invalid login credentials")) return _t("err_invalid", "❌ Email və ya şifrə yanlışdır");
+    if (msg.includes("Email not confirmed"))        return _t("err_unconfirmed", "❌ Zəhmət olmasa emailinizi təsdiqləyin");
+    if (msg.includes("User already registered"))    return _t("err_exists", "❌ Bu email artıq qeydiyyatdan keçib");
+    if (msg.includes("Password should be"))         return _t("err_password", "❌ Şifrə ən azı 6 simvol olmalıdır");
     return "❌ " + msg;
 }
 
@@ -116,12 +120,13 @@ if (logoutBtn) {
 // ─── UI-ni giriş vəziyyətinə görə yenilə ──────
 function updateAuthUI(user) {
     if (user) {
-        if (authBtn)      authBtn.style.display = "none";
-        if (userBadge)    userBadge.style.display = "flex";
+        if (authBtn)        authBtn.style.display = "none";
+        if (userBadge)      userBadge.style.display = "flex";
         if (userEmailLabel) userEmailLabel.textContent = user.email.split("@")[0];
+        if (userAvatar)     userAvatar.textContent = user.email[0].toUpperCase();
     } else {
-        if (authBtn)      authBtn.style.display = "inline-flex";
-        if (userBadge)    userBadge.style.display = "none";
+        if (authBtn)   authBtn.style.display = "inline-flex";
+        if (userBadge) userBadge.style.display = "none";
     }
 }
 
@@ -131,12 +136,10 @@ function updateAuthUI(user) {
     updateAuthUI(session ? session.user : null);
 })();
 
-// ─── Sessiya dəyişəndə UI-ni yenilə ───────────
 supabaseClient.auth.onAuthStateChange((event, session) => {
     updateAuthUI(session ? session.user : null);
 });
 
-// Digər fayllardan istifadə üçün qlobal export
 window.getCurrentUser = async function () {
     const { data: { session } } = await supabaseClient.auth.getSession();
     return session ? session.user : null;
