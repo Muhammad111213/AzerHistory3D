@@ -20,6 +20,10 @@ const userBadge       = document.getElementById("userBadge");
 const userEmailLabel  = document.getElementById("userEmailLabel");
 const userAvatar      = document.getElementById("userAvatar");
 const logoutBtn       = document.getElementById("logoutBtn");
+const authFullName = document.getElementById("authFullName");
+const authCountry  = document.getElementById("authCountry");
+const fieldFullName = document.getElementById("fieldFullName");
+const fieldCountry  = document.getElementById("fieldCountry");
 
 let isLoginMode = true; // true = giriş, false = qeydiyyat
 
@@ -34,6 +38,8 @@ function refreshAuthTexts() {
             ? _t("auth_toggle_to_signup", "Hesabın yoxdur? Qeydiyyatdan keç")
             : _t("auth_toggle_to_login", "Artıq hesabın var? Giriş et");
     }
+    if (fieldFullName) fieldFullName.style.display = isLoginMode ? "none" : "block";
+    if (fieldCountry)  fieldCountry.style.display  = isLoginMode ? "none" : "block";
 }
 window.addEventListener("langchange", refreshAuthTexts);
 
@@ -82,7 +88,15 @@ if (authForm) {
                 closeAuthModal();
                 updateAuthUI(data.user);
             } else {
-                const { data, error } = await supabaseClient.auth.signUp({ email, password });
+                const { data, error } = await supabaseClient.auth.signUp({
+                    email, password,
+                    options: {
+                        data: {
+                            full_name: authFullName ? authFullName.value.trim() : "",
+                            country: authCountry ? authCountry.value.trim() : "",
+                        },
+                    },
+                });
                 if (error) throw error;
                 authError.style.color = "#4ADE80";
                 authError.textContent = _t("auth_signup_ok", "✅ Qeydiyyat uğurludur! Emailinizi yoxlayın və linkə klik edin.");
