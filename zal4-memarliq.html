@@ -295,6 +295,14 @@
         <h2 id="authTitle">Giriş Et</h2>
         <p class="auth-modal-sub" data-i18n="auth_sub">AzerHistory 3D-yə xoş gəlmisiniz</p>
         <form id="authForm">
+            <div class="auth-field signup-only" id="fieldFullName" style="display:none;">
+                <label data-i18n="auth_fullname">Ad Soyad</label>
+                <input type="text" id="authFullName" placeholder="Əli Vəliyev" />
+            </div>
+            <div class="auth-field signup-only" id="fieldCountry" style="display:none;">
+                <label data-i18n="auth_country">Ölkə</label>
+                <input type="text" id="authCountry" placeholder="Azərbaycan" />
+            </div>
             <div class="auth-field">
                 <label data-i18n="auth_email">Email</label>
                 <input type="email" id="authEmail" required placeholder="sen@gmail.com" />

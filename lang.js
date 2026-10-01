@@ -22,6 +22,8 @@ const T = {
         auth_login_btn: "Giriş Et",
         auth_signup_btn: "Qeydiyyatdan Keç",
         auth_toggle_to_signup: "Hesabın yoxdur? Qeydiyyatdan keç",
+        auth_fullname: "Ad Soyad",
+        auth_country: "Ölkə",
         auth_toggle_to_login: "Artıq hesabın var? Giriş et",
 
         // ---- ANA SƏHİFƏ (FLL.html) HERO ----
@@ -126,6 +128,8 @@ const T = {
         auth_login_btn: "Log In",
         auth_signup_btn: "Sign Up",
         auth_toggle_to_signup: "No account? Sign up",
+        auth_fullname: "Full Name",
+        auth_country: "Country",
         auth_toggle_to_login: "Already have an account? Log in",
 
         hero_badge: "🏛️ Digital Museum",
@@ -225,6 +229,8 @@ const T = {
         auth_login_btn: "Войти",
         auth_signup_btn: "Зарегистрироваться",
         auth_toggle_to_signup: "Нет аккаунта? Зарегистрируйтесь",
+        auth_fullname: "Имя и фамилия",
+        auth_country: "Страна",
         auth_toggle_to_login: "Уже есть аккаунт? Войти",
 
         hero_badge: "🏛️ Цифровой Музей",
