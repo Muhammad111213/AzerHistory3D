@@ -147,7 +147,7 @@
     font-family: "Poppins", sans-serif;
     transition: background 0.3s, transform 0.2s;
 }
-#authSubmitBtn:hover:not(:disabled) { background: #33d0ff; transform: translateY(-1px); }
+#authSubmitBtn:hover:not(:disabled) { background: #e8a53a; transform: translateY(-1px); }
 #authSubmitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
 
 #authToggleMode {
@@ -193,7 +193,7 @@
     font-weight: 700; font-size: 13px; cursor: pointer;
     transition: background 0.3s;
 }
-.comment-send-btn:hover { background: #33d0ff; }
+.comment-send-btn:hover { background: #e8a53a; }
 
 .comments-list { display: flex; flex-direction: column; gap: 12px; max-height: 340px; overflow-y: auto; }
 
