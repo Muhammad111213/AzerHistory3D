@@ -31,10 +31,10 @@ async function loadComments(artifactId, container) {
 
     container.innerHTML = data.map(c => `
         <div class="comment-item" data-comment-id="${c.id}">
-            <div class="comment-avatar">${(c.user_email || "?")[0].toUpperCase()}</div>
+            <div class="comment-avatar">${((c.user_name && c.user_name.trim()) || c.user_email || "?")[0].toUpperCase()}</div>
             <div class="comment-body">
                 <div class="comment-header">
-                    <span class="comment-author">${escapeHtml((c.user_email || _c("user_default", "İstifadəçi")).split("@")[0])}</span>
+                    <span class="comment-author">${escapeHtml(c.user_name && c.user_name.trim() ? c.user_name.trim() : (c.user_email || _c("user_default", "İstifadəçi")).split("@")[0])}</span>
                     <span class="comment-date">${formatDate(c.created_at)}</span>
                 </div>
                 <p class="comment-text">${escapeHtml(c.content)}</p>
@@ -57,9 +57,12 @@ async function submitComment(artifactId, inputEl, container) {
         return;
     }
 
+    const fullName = (user.user_metadata && user.user_metadata.full_name) ? user.user_metadata.full_name.trim() : "";
+
     const { error } = await supabaseClient.from("comments").insert({
         user_id: user.id,
         user_email: user.email,
+        user_name: fullName,
         artifact_id: artifactId,
         content: content,
     });

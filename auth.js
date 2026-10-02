@@ -136,8 +136,10 @@ function updateAuthUI(user) {
     if (user) {
         if (authBtn)        authBtn.style.display = "none";
         if (userBadge)      userBadge.style.display = "flex";
-        if (userEmailLabel) userEmailLabel.textContent = user.email.split("@")[0];
-        if (userAvatar)     userAvatar.textContent = user.email[0].toUpperCase();
+        const fullName = (user.user_metadata && user.user_metadata.full_name) ? user.user_metadata.full_name.trim() : "";
+        const displayName = fullName || user.email.split("@")[0];
+        if (userEmailLabel) userEmailLabel.textContent = displayName;
+        if (userAvatar)     userAvatar.textContent = displayName[0].toUpperCase();
     } else {
         if (authBtn)   authBtn.style.display = "inline-flex";
         if (userBadge) userBadge.style.display = "none";
