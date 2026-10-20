@@ -83,6 +83,7 @@ const T = {
 
         // ---- FOOTER ----
         footer_copy: "© 2026 AzerHistory 3D",
+        like_tooltip: "Bəyən",
         hall6_title: "Xəritə",
         hall6_desc: "Bütün tapıntıların Azərbaycan xəritəsindəki dəqiq yerini gör.",
         count_maps: "xəritə",
@@ -462,6 +463,7 @@ const T = {
         hall4_page_sub: "History carved into stone, wood and bronze — palaces, mausoleums, fortresses and temples.",
 
         footer_copy: "© 2026 AzerHistory 3D",
+        like_tooltip: "Like",
         hall6_title: "Map",
         hall6_desc: "See the exact location of every find on the map of Azerbaijan.",
         count_maps: "maps",
@@ -841,6 +843,7 @@ const T = {
         hall4_page_sub: "История, высеченная в камне, дереве и бронзе — дворцы, мавзолеи, крепости и храмы.",
 
         footer_copy: "© 2026 AzerHistory 3D",
+        like_tooltip: "Нравится",
         hall6_title: "Карта",
         hall6_desc: "Посмотрите точное расположение всех находок на карте Азербайджана.",
         count_maps: "карты",

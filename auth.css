@@ -236,3 +236,25 @@
     .auth-modal-box { padding: 28px 22px; }
     .user-email-label { max-width: 60px; }
 }
+
+/* ─── LIKE (bəyənmə) DÜYMƏSİ ──────────────────── */
+.like-bar { margin: 18px 0 4px; }
+.like-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 30px;
+    color: #bbb; cursor: pointer;
+    font-family: "Inter", sans-serif; font-size: 13px; font-weight: 600;
+    transition: all 0.25s;
+}
+.like-btn:hover { border-color: #d48c1a; color: #d48c1a; background: rgba(212,140,26,0.08); }
+.like-btn.liked { border-color: #d48c1a; color: #d48c1a; background: rgba(212,140,26,0.14); }
+.like-btn:disabled { opacity: 0.7; cursor: wait; }
+.like-heart {
+    font-size: 16px; line-height: 1; display: inline-block;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.like-btn.liked .like-heart { transform: scale(1.2); }
+.like-btn:active .like-heart { transform: scale(0.8); }
